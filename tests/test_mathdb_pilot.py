@@ -33,7 +33,7 @@ class PilotTests(unittest.TestCase):
         row = "| " + " | ".join(values) + " |\n"
         separator = "| " + " | ".join(["---"]*count) + " |\n"
         path = root / location / "README.md"
-        path.write_text(path.read_text().replace(separator, separator+row, 1))
+        path.write_text(path.read_text(encoding="utf-8").replace(separator, separator+row, 1), encoding="utf-8")
         return row
 
     def test_approved_cohort_and_deduplication(self):
@@ -139,15 +139,15 @@ class PilotTests(unittest.TestCase):
             self.copy_fixture(root)
             pilot.synchronize(root)
             page = root / "problems/mathdb-pilot.md"
-            page.write_text(page.read_text() + "Changed mapping\n")
+            page.write_text(page.read_text(encoding="utf-8") + "Changed mapping\n", encoding="utf-8")
             with self.assertRaises(pilot.InvalidPilot):
                 pilot.synchronize(root)
             pilot.synchronize(root, write=True)
             pilot.synchronize(root)
             index = root / "problems/README.md"
-            index.write_text(index.read_text().replace(
+            index.write_text(index.read_text(encoding="utf-8").replace(
                 f"| {pilot.ELIGIBILITY} |  |  |",
-                f"| {pilot.ELIGIBILITY} | Candidate |  |", 1))
+                f"| {pilot.ELIGIBILITY} | Candidate |  |", 1), encoding="utf-8")
             with self.assertRaises(pilot.InvalidPilot):
                 pilot.synchronize(root)
 
@@ -155,7 +155,7 @@ class PilotTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             self.copy_fixture(root)
-            original_index = (root / "problems/README.md").read_text()
+            original_index = (root / "problems/README.md").read_text(encoding="utf-8")
             row = self.register_row(root, "candidates", "Exposition")
             states = pilot.claim_states(root, self.manifest)
             self.assertEqual(states["JSP-000001"], {
@@ -165,17 +165,17 @@ class PilotTests(unittest.TestCase):
                 pilot.synchronize(root)
             pilot.synchronize(root, write=True)
             pilot.synchronize(root)
-            self.assertEqual(original_index, (root / "problems/README.md").read_text())
-            self.assertIn(" |  |  | Candidate |", (root / "problems/mathdb-pilot.md").read_text())
+            self.assertEqual(original_index, (root / "problems/README.md").read_text(encoding="utf-8"))
+            self.assertIn(" |  |  | Candidate |", (root / "problems/mathdb-pilot.md").read_text(encoding="utf-8"))
             candidates = root / "candidates/README.md"
-            candidates.write_text(candidates.read_text().replace(row, "", 1))
+            candidates.write_text(candidates.read_text(encoding="utf-8").replace(row, "", 1), encoding="utf-8")
             self.register_row(root, "awards", "Exposition")
             pilot.synchronize(root, write=True)
             pilot.synchronize(root)
             self.assertEqual(pilot.claim_states(root, self.manifest)["JSP-000001"], {
                 "Solution": "", "Lean": "", "Exposition": "Awarded"})
-            self.assertEqual(original_index, (root / "problems/README.md").read_text())
-            self.assertIn(" |  |  | Awarded |", (root / "problems/mathdb-pilot.md").read_text())
+            self.assertEqual(original_index, (root / "problems/README.md").read_text(encoding="utf-8"))
+            self.assertIn(" |  |  | Awarded |", (root / "problems/mathdb-pilot.md").read_text(encoding="utf-8"))
 
     def test_solution_and_lean_records_do_not_claim_exposition(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -220,9 +220,9 @@ class PilotTests(unittest.TestCase):
             root = Path(directory)
             self.copy_fixture(root)
             index = root / "problems/README.md"
-            index.write_text(index.read_text().replace(
+            index.write_text(index.read_text(encoding="utf-8").replace(
                 "| Solver claim status | Lean claim status |",
-                "| Solver claim status Lean claim status |", 1))
+                "| Solver claim status Lean claim status |", 1), encoding="utf-8")
             with self.assertRaises(pilot.InvalidPilot):
                 pilot.synchronize(root)
 
