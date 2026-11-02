@@ -31,6 +31,15 @@ def require(condition, message):
         raise InvalidPilot(message)
 
 
+def is_safe_relative(path, root):
+    """Check that path resolves safely inside root across Python versions."""
+    try:
+        path.resolve().relative_to(root.resolve())
+        return True
+    except (ValueError, AttributeError):
+        return False
+
+
 def unique_object(pairs):
     result = {}
     for key, value in pairs:
@@ -50,7 +59,7 @@ def https_link(value, label):
 
 
 def load_manifest(root=ROOT):
-    value = json.loads((root / "problems/mathdb-pilot.json").read_text(),
+    value = json.loads((root / "problems/mathdb-pilot.json").read_text(encoding="utf-8"),
                        object_pairs_hook=unique_object)
     validate_manifest(value, root)
     return value
@@ -95,8 +104,8 @@ def validate_manifest(value, root=ROOT):
             r"problems/catalog-\d{4}-\d{4}\.md", p["catalog"]), "Unsafe catalog path")
         path = root / p["catalog"]
         require(path.is_file() and not path.is_symlink() and
-                path.resolve().is_relative_to(root.resolve()), "Missing/unsafe catalog")
-        require(f"## {jsp} · {p['title']}\n" in path.read_text(),
+                is_safe_relative(path, root), "Missing/unsafe catalog")
+        require(f"## {jsp} · {p['title']}\n" in path.read_text(encoding="utf-8"),
                 f"Missing/mismatched catalog heading: {jsp}")
         m = p["mathdb"]
         require(isinstance(m, dict) and set(m) == {"status", "id", "url", "title",
@@ -162,8 +171,8 @@ def claim_states(root, value):
             ("awards", "MathDB pilot awards", "Awarded")):
         path = root / location / "README.md"
         require(path.is_file() and not path.is_symlink() and
-                path.resolve().is_relative_to(root.resolve()), "Missing/unsafe public register")
-        content = path.read_text()
+                is_safe_relative(path, root), "Missing/unsafe public register")
+        content = path.read_text(encoding="utf-8")
         marker = f"### {section}\n"
         require(content.count(marker) == 1, "Missing/duplicate MathDB register section")
         content = content.split(marker, 1)[1]
@@ -218,12 +227,12 @@ def render(value, states):
 def verify_catalog_index(root, value, states, check_states=True):
     headings = []
     for path in sorted((root / "problems").glob("catalog-*.md")):
-        headings += re.findall(r"^## (JSP-\d{6}) · (.+)$", path.read_text(), re.M)
+        headings += re.findall(r"^## (JSP-\d{6}) · (.+)$", path.read_text(encoding="utf-8"), re.M)
     ids = [jsp for jsp, _ in headings]
     require(len(ids) == len(set(ids)), "Duplicate catalog JSP")
     require(sorted(ids) == [f"JSP-{i:06d}" for i in range(1, len(ids)+1)],
             "Catalog numbering is not consecutive")
-    index = (root / "problems/README.md").read_text()
+    index = (root / "problems/README.md").read_text(encoding="utf-8")
     expected_header = "| " + " | ".join(INDEX_COLUMNS) + " |"
     headers = re.findall(r"^\| No\. \|.*$", index, re.M)
     require(headers and all(header == expected_header for header in headers),
@@ -233,7 +242,7 @@ def verify_catalog_index(root, value, states, check_states=True):
     for row in re.findall(r"^\| JSP-\d{6} \|.*$", index, re.M):
         require(len(row.split("|")[1:-1]) == len(INDEX_COLUMNS), "Index row/column mismatch")
     for p in value["problems"]:
-        text = (root / p["catalog"]).read_text()
+        text = (root / p["catalog"]).read_text(encoding="utf-8")
         start = text.index(f"## {p['jsp']} · ")
         end = text.find('\n<a id=', start)
         block = text[start:end if end >= 0 else None]
@@ -256,7 +265,7 @@ def synchronize(root=ROOT, write=False):
     states = claim_states(root, value)
     verify_catalog_index(root, value, states, check_states=not write)
     index_path = root / "problems/README.md"
-    index_lines = index_path.read_text().splitlines()
+    index_lines = index_path.read_text(encoding="utf-8").splitlines()
     for i, line in enumerate(index_lines):
         match = re.match(r"^\| (JSP-\d{6}) \|", line)
         if match and match[1] in states:
@@ -266,7 +275,7 @@ def synchronize(root=ROOT, write=False):
     catalogs = {}
     for p in value["problems"]:
         path = root / p["catalog"]
-        text = catalogs.get(path, path.read_text())
+        text = catalogs.get(path, path.read_text(encoding="utf-8"))
         start = text.index(f"## {p['jsp']} · ")
         end = text.find('\n<a id=', start)
         if end < 0:
@@ -287,9 +296,9 @@ def synchronize(root=ROOT, write=False):
                index_path: "\n".join(index_lines)+"\n"}
     for path, expected in outputs.items():
         if write:
-            path.write_text(expected)
+            path.write_text(expected, encoding="utf-8")
         else:
-            require(path.is_file() and path.read_text() == expected,
+            require(path.is_file() and path.read_text(encoding="utf-8") == expected,
                     f"Generated mapping drift: {path.relative_to(root)}; run build")
     return len(value["problems"])
 

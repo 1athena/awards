@@ -135,7 +135,7 @@ def published_role_errors(root, jsp, selected, issue_url):
         for location, heading, columns in (
                 ("candidates", "MathDB pilot candidates", 10),
                 ("awards", "MathDB pilot awards", 9)):
-            content = (root / location / "README.md").read_text()
+            content = (root / location / "README.md").read_text(encoding="utf-8")
             marker = f"### {heading}\n"
             if content.count(marker) != 1:
                 raise ValueError("Missing or duplicate register section")
@@ -213,7 +213,7 @@ def main():
     parser.add_argument("--event", required=True, type=Path,
                         help="GitHub Actions event JSON file")
     args = parser.parse_args()
-    errors = check_event(json.loads(args.event.read_text()))
+    errors = check_event(json.loads(args.event.read_text(encoding="utf-8")))
     if errors is None:
         message = "Skipped: this issue is not a MathDB web-form claim."
     elif errors:
