@@ -1,0 +1,99 @@
+name: Claim Reward (MathDB)
+description: Claim a reward for a MathDB pilot problem.
+title: "[Claim Reward] JSP-XXXXXX — categories"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        MathDB submits the materials for a [MathDB pilot problem](https://github.com/TheJustinSunPrize/awards/blob/main/problems/mathdb-pilot.md). In the title, `categories` lists the contribution roles selected below, for example `Solution, Lean, Exposition`.
+
+  - type: input
+    id: problem
+    attributes:
+      label: JSP identifier
+      placeholder: JSP-000001
+    validations:
+      required: true
+  - type: input
+    id: catalog_link
+    attributes:
+      label: Catalog link
+      description: Link to this problem in the repository's problem bank.
+      placeholder: https://github.com/TheJustinSunPrize/awards/blob/main/problems/catalog-0001-0100.md#JSP-000001
+    validations:
+      required: true
+  - type: input
+    id: mathdb_problem
+    attributes:
+      label: MathDB problem link
+      description: Use the confirmed MathDB link recorded in the problem bank.
+      placeholder: https://mathdb.com/p/...
+    validations:
+      required: true
+  - type: textarea
+    id: actual_claimant
+    attributes:
+      label: Contributor
+      description: Public name, stable MathDB user ID/profile and contribution. Include coauthors and attribution links if applicable; GitHub account is optional.
+    validations:
+      required: true
+  - type: checkboxes
+    id: categories
+    attributes:
+      label: Contribution roles
+      description: Select one or more roles for the contributor whose materials passed the required reviews and qualification checks. Provide material links for every selected role; leave other material fields blank. Roles already published in candidates or awards are checked after submission; use Correction or Formal dispute to challenge an existing record.
+      options:
+        - label: Solution — mathematical solution author
+        - label: Lean — Lean formalization author
+        - label: Exposition — explanatory article, video or other material author
+    validations:
+      required: true
+  - type: textarea
+    id: solution_records
+    attributes:
+      label: Solution material links
+      description: If claiming Solution, provide links to the mathematical solution or paper.
+      placeholder: |
+        https://... (solution or paper)
+    validations:
+      required: false
+  - type: textarea
+    id: lean_records
+    attributes:
+      label: Lean material links
+      description: If claiming Lean, provide the original proof repository URL and the full commit SHA for the version being claimed.
+      placeholder: |
+        Repository: https://github.com/OWNER/REPOSITORY
+        Commit: full commit SHA
+    validations:
+      required: false
+  - type: textarea
+    id: exposition_records
+    attributes:
+      label: Exposition material links
+      description: If claiming Exposition, provide links to the article, video or other explanatory materials.
+      placeholder: |
+        https://... (article, video or other materials)
+    validations:
+      required: false
+  - type: textarea
+    id: review_records
+    attributes:
+      label: Review record links
+      description: Optional. Link separate MathDB review records if the results are not available from the problem or material links. Include committee selection for Exposition when applicable.
+      placeholder: https://... (review record)
+    validations:
+      required: false
+  - type: textarea
+    id: related_records
+    attributes:
+      label: Related claims or disputes (if any)
+      description: Link relevant claims, historical PRs, coauthors or disputes found during the required history check. Leave blank if none.
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        The prize team will review the claim and follow up on identity verification and personal confirmation. Submitting this form does not confirm an award.
+
+        See the [award process](https://github.com/TheJustinSunPrize/awards/blob/main/docs/award-process-mathdb.md) for public review and payment conditions.

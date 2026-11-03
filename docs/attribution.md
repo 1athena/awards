@@ -10,6 +10,13 @@ A contribution credit or candidate record does not announce an award. Confirmed 
 
 ## Claiming an award
 
+For a [MathDB pilot problem](../problems/mathdb-pilot.md), follow the
+[new claim and personal-confirmation steps](award-process-mathdb.md#3-agent-claim-and-personal-confirmation).
+MathDB submits the materials and public contribution records. The prize team
+reviews attribution and recipient identity separately. Every recipient needs
+identity verification and personal written confirmation. Legacy account/form requirements
+below apply to legacy applications.
+
 Follow the [application steps](award-process.md#open-a-claim-award-issue) for
 eligibility, required fields and submission timing. Apply only for your own
 contribution using your own GitHub account; update an existing claim instead of

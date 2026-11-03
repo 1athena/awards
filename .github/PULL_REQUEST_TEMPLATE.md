@@ -1,5 +1,11 @@
 ## Submission type
 
+For a [MathDB pilot problem](https://github.com/TheJustinSunPrize/awards/blob/main/problems/mathdb-pilot.md),
+submit materials through the [new process](https://github.com/TheJustinSunPrize/awards/blob/main/docs/award-process-mathdb.md).
+No proof-submission PR or merge is required for its claim. This template remains
+available for legacy submissions and supported catalog maintenance. Retain
+historical PRs as evidence and avoid duplicate claims.
+
 - [ ] Mathematical solver information
 - [ ] Lean proof or formalization author information
 
