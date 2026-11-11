@@ -121,9 +121,10 @@ qualification, priority, identity, committee decisions, live agent integration o
 payment. Current upstream uses Markdown registers and has no old JSON award
 generator to modify; the pilot check supplements this structure.
 
-The [candidate](../candidates/README.md#mathdb-pilot-candidates) and
-[award](../awards/README.md#mathdb-pilot-awards) pilot tables stay in the existing
-README registers, with one category/claimant record and preserved public-review
-history. No hypothetical candidates, awarded recipients or payments are created
+Candidates use the shared [Candidate register](../candidates/README.md#candidate-register),
+with independent contribution columns and links to each category's claim.
+The [award pilot table](../awards/README.md#mathdb-pilot-awards) retains its
+category/claimant records. Both preserve public-review history. No hypothetical
+candidates, awarded recipients or payments are created
 when preparing a cohort. The official agent follows [its contract](../agent-scope.md)
 and the [claim/update templates](templates/mathdb-claim-reward.md).

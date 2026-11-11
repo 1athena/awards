@@ -174,10 +174,12 @@ an award. Use the [MathDB claim form](../.github/ISSUE_TEMPLATE/claim-reward-mat
 ## 4. Public review for each category
 
 Administrators publish accepted categories in the
-[candidate register](../candidates/README.md#mathdb-pilot-candidates), linking the
-claim, MathDB problem, fixed material and verification/committee evidence. Record
-explicit UTC start and scheduled end, separated by 14 full days, and the rule
-version. Public review starts at the category's actual candidate publication,
+[candidate register](../candidates/README.md#candidate-register), using the
+corresponding contribution columns and linking claimant names to the claim. Keep
+the MathDB problem, fixed material, verification/committee evidence and rule
+version in the linked claim or registration PR. Record the explicit UTC start in
+the register and the scheduled end 14 full days later in the linked record.
+Public review starts at the category's actual candidate publication,
 not at submission, verification, issue creation, email or a historical PR merge.
 
 **Accepted Solution and Exposition contributions may be claimed and publicly

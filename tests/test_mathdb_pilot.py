@@ -5,10 +5,12 @@ import importlib.util
 import json
 from pathlib import Path
 import shutil
+import sys
 import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
 SPEC = importlib.util.spec_from_file_location("mathdb_pilot", ROOT / "scripts/mathdb_pilot.py")
 pilot = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(pilot)
@@ -27,13 +29,32 @@ class PilotTests(unittest.TestCase):
             shutil.copytree(ROOT / location, root / location)
 
     def register_row(self, root, location, category, jsp="JSP-000001", claimant="Test contributor"):
-        count = 10 if location == "candidates" else 9
-        values = [f"[{jsp}](../problems/catalog-0001-0100.md#{jsp})",
-                  category, claimant, "mathdb"] + ["test evidence"]*(count-4)
+        path = root / location / "README.md"
+        content = path.read_text(encoding="utf-8")
+        if location == "candidates":
+            if category == "Exposition":
+                lines = []
+                for line in content.splitlines():
+                    if line.startswith("| ") and len(line.split("|")[1:-1]) == 5:
+                        if line.startswith("| Problem ID"):
+                            line += " Exposition review start (UTC) | Exposition author |"
+                        elif line.startswith("| ---"):
+                            line += " --- | --- |"
+                        else:
+                            line += "  |  |"
+                    lines.append(line)
+                content = "\n".join(lines) + "\n"
+            count = 7 if "| Exposition author |" in content else 5
+            values = [f"[{jsp}](../problems/catalog-0001-0100.md#{jsp})"] + [""]*(count-1)
+            offset = {"Solution": 1, "Lean": 3, "Exposition": 5}[category]
+            values[offset:offset+2] = ["Pending actual publication", claimant]
+        else:
+            count = 9
+            values = [f"[{jsp}](../problems/catalog-0001-0100.md#{jsp})",
+                      category, claimant, "mathdb"] + ["test evidence"]*(count-4)
         row = "| " + " | ".join(values) + " |\n"
         separator = "| " + " | ".join(["---"]*count) + " |\n"
-        path = root / location / "README.md"
-        path.write_text(path.read_text(encoding="utf-8").replace(separator, separator+row, 1), encoding="utf-8")
+        path.write_text(content.replace(separator, separator+row, 1), encoding="utf-8")
         return row
 
     def test_approved_cohort_and_deduplication(self):
@@ -193,7 +214,43 @@ class PilotTests(unittest.TestCase):
             with tempfile.TemporaryDirectory() as directory:
                 root = Path(directory)
                 self.copy_fixture(root)
-                self.register_row(root, "candidates", category, jsp)
+                self.register_row(root, "awards", category, jsp)
+                with self.assertRaises(pilot.InvalidPilot):
+                    pilot.claim_states(root, self.manifest)
+
+    def test_shared_register_keeps_legacy_candidates_outside_pilot(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.copy_fixture(root)
+            self.register_row(root, "candidates", "Solution", "JSP-000011")
+            states = pilot.claim_states(root, self.manifest)
+            self.assertNotIn("JSP-000011", states)
+            self.assertEqual(states["JSP-000007"], {
+                "Solution": "", "Lean": "Candidate", "Exposition": ""})
+
+    def test_award_link_in_shared_register_is_not_an_active_candidate(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.copy_fixture(root)
+            row = self.register_row(root, "candidates", "Solution")
+            path = root / "candidates/README.md"
+            path.write_text(path.read_text().replace(row, row.replace(
+                "Pending actual publication | Test contributor",
+                " | [Awarded](../awards/README.md#mathdb-pilot-awards)")))
+            self.register_row(root, "awards", "Solution")
+            self.assertEqual(pilot.claim_states(root, self.manifest)["JSP-000001"], {
+                "Solution": "Awarded", "Lean": "", "Exposition": ""})
+
+    def test_malformed_shared_register_cannot_silently_remove_candidate_state(self):
+        for old, new in (("## Candidate register", "## Unknown register"),
+                         ("| Lean formalizer |", "| Unknown role |"),
+                         (" | Pending actual publication |", " |  |")):
+            with self.subTest(old=old), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                self.copy_fixture(root)
+                self.register_row(root, "candidates", "Lean")
+                path = root / "candidates/README.md"
+                path.write_text(path.read_text().replace(old, new, 1))
                 with self.assertRaises(pilot.InvalidPilot):
                     pilot.claim_states(root, self.manifest)
 
@@ -201,7 +258,8 @@ class PilotTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             self.copy_fixture(root)
-            self.register_row(root, "candidates", "Exposition")
+            self.register_row(root, "candidates", "Exposition", claimant=
+                              "[Test contributor](https://github.com/TheJustinSunPrize/awards/issues/123)")
             self.register_row(root, "awards", "Exposition")
             with self.assertRaises(pilot.InvalidPilot):
                 pilot.claim_states(root, self.manifest)

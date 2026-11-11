@@ -12,6 +12,8 @@ from pathlib import Path
 import re
 from urllib.parse import urlsplit
 
+from candidate_register import candidate_records
+
 ROOT = Path(__file__).resolve().parents[1]
 CATEGORY_FIELDS = {
     "Solution": "Solution material links",
@@ -131,52 +133,50 @@ def validate_body(body):
 def published_role_errors(root, jsp, selected, issue_url):
     """Use maintained public registers; pending issues do not reserve roles."""
     occupied, own_roles = {}, set()
+
+    def record(category, location, evidence):
+        occupied.setdefault(category, set()).add(location)
+        registered_issues = re.findall(
+            r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/issues/[1-9]\d*", evidence)
+        if issue_url and issue_url.rstrip("/") in registered_issues:
+            own_roles.add(category)
+
     try:
-        for location, heading, columns in (
-                ("candidates", "MathDB pilot candidates", 10),
-                ("awards", "MathDB pilot awards", 9)):
-            content = (root / location / "README.md").read_text(encoding="utf-8")
-            marker = f"### {heading}\n"
-            if content.count(marker) != 1:
-                raise ValueError("Missing or duplicate register section")
-            legacy, content = content.split(marker, 1)
-            for line in legacy.splitlines():
-                if not line.startswith(f"| [{jsp}]("):
-                    continue
-                cells = [cell.strip() for cell in line.split("|")[1:-1]]
-                if len(cells) != 5:
-                    raise ValueError("Invalid legacy register row")
-                if location == "awards":
-                    category = {"Mathematical solution": "Solution",
-                                "Lean formalization": "Lean"}.get(cells[1])
-                    if category is None:
-                        raise ValueError("Unknown legacy award role")
-                    legacy_roles = [category]
-                else:
-                    legacy_roles = (["Solution"] if cells[1] or cells[2] else []) + (
-                        ["Lean"] if cells[3] or cells[4] else [])
-                for category in legacy_roles:
-                    if category in selected:
-                        occupied.setdefault(category, set()).add(location)
-            content = re.split(r"(?m)^#{1,3} ", content, maxsplit=1)[0]
-            for line in content.splitlines():
-                if not line.startswith("| "):
-                    continue
-                cells = [cell.strip() for cell in line.split("|")[1:-1]]
-                if cells and (cells[0] == "Problem ID" or all(cell == "---" for cell in cells)):
-                    continue
-                identifier = re.fullmatch(r"\[(JSP-\d{6})\]\([^\s]+\)", cells[0]) if cells else None
-                if (len(cells) != columns or not identifier
-                        or cells[1] not in CATEGORY_FIELDS or cells[3] != "mathdb"):
-                    raise ValueError("Invalid register row")
-                if identifier[1] != jsp or cells[1] not in selected:
-                    continue
-                category = cells[1]
-                occupied.setdefault(category, set()).add(location)
-                registered_issues = re.findall(
-                    r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/issues/[1-9]\d*", cells[5])
-                if issue_url and issue_url.rstrip("/") in registered_issues:
-                    own_roles.add(category)
+        for identifier, category, contributor in candidate_records(root):
+            if identifier == jsp and category in selected:
+                record(category, "candidates", contributor)
+        content = (root / "awards/README.md").read_text(encoding="utf-8")
+        marker = "### MathDB pilot awards\n"
+        if content.count(marker) != 1:
+            raise ValueError("Missing or duplicate register section")
+        legacy, content = content.split(marker, 1)
+        for line in legacy.splitlines():
+            if not line.startswith(f"| [{jsp}]("):
+                continue
+            cells = [cell.strip() for cell in line.split("|")[1:-1]]
+            if len(cells) != 5:
+                raise ValueError("Invalid legacy register row")
+            category = {"Mathematical solution": "Solution",
+                        "Lean formalization": "Lean"}.get(cells[1])
+            if category is None:
+                raise ValueError("Unknown legacy award role")
+            if category in selected:
+                occupied.setdefault(category, set()).add("awards")
+        content = re.split(r"(?m)^#{1,3} ", content, maxsplit=1)[0]
+        for line in content.splitlines():
+            if not line.startswith("| "):
+                continue
+            cells = [cell.strip() for cell in line.split("|")[1:-1]]
+            if cells and (cells[0] == "Problem ID" or all(cell == "---" for cell in cells)):
+                continue
+            identifier = re.fullmatch(r"\[(JSP-\d{6})\]\([^\s]+\)", cells[0]) if cells else None
+            if (len(cells) != 9 or not identifier
+                    or cells[1] not in CATEGORY_FIELDS or cells[3] != "mathdb"):
+                raise ValueError("Invalid register row")
+            if identifier[1] != jsp or cells[1] not in selected:
+                continue
+            category = cells[1]
+            record(category, "awards", cells[5])
     except (OSError, ValueError):
         return ["Cannot check role availability: the candidates or awards register is missing or invalid."]
     return [f"{category} is already published in {' / '.join(sorted(occupied[category]))}; "

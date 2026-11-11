@@ -11,6 +11,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
 SCRIPT = ROOT / "scripts/check_mathdb_claim.py"
 SPEC = importlib.util.spec_from_file_location("check_mathdb_claim", SCRIPT)
 claim = importlib.util.module_from_spec(SPEC)
@@ -155,16 +156,25 @@ class MathDBClaimTests(unittest.TestCase):
         self.assertTrue(claim.check_event(event))
 
     def write_registers(self, root, occupied=None):
-        for location, heading, count in (("candidates", "MathDB pilot candidates", 10),
+        from candidate_register import HEADERS, EXPOSITION_HEADERS
+        for location, heading, count in (("candidates", "Candidate register", 7),
                                           ("awards", "MathDB pilot awards", 9)):
             directory = root / location
             directory.mkdir(exist_ok=True)
-            content = f"### {heading}\n\n"
+            content = f"{'##' if location == 'candidates' else '###'} {heading}\n\n"
+            if location == "candidates":
+                content += "| " + " | ".join(HEADERS + EXPOSITION_HEADERS) + " |\n"
+                content += "| " + " | ".join(["---"]*count) + " |\n"
             for record_location, jsp, category, issue_url in occupied or []:
                 if record_location == location:
-                    cells = [f"[{jsp}](../problems/catalog.md#{jsp})", category,
-                             "Public contributor", "mathdb", "https://mathdb.com/p/123",
-                             f"[Claim]({issue_url})"] + ["evidence"]*(count-6)
+                    if location == "candidates":
+                        cells = [f"[{jsp}](../problems/catalog.md#{jsp})"] + [""]*6
+                        offset = {"Solution": 1, "Lean": 3, "Exposition": 5}[category]
+                        cells[offset:offset+2] = ["2026-10-01", f"[Public contributor]({issue_url})"]
+                    else:
+                        cells = [f"[{jsp}](../problems/catalog.md#{jsp})", category,
+                                 "Public contributor", "mathdb", "https://mathdb.com/p/123",
+                                 f"[Claim]({issue_url})"] + ["evidence"]*(count-6)
                     content += "| " + " | ".join(cells) + " |\n"
             (directory / "README.md").write_text(content)
 
@@ -204,7 +214,12 @@ class MathDBClaimTests(unittest.TestCase):
                 path = root / location / "README.md"
                 row = "| " + " | ".join(["[JSP-000001](../problems/catalog.md#JSP-000001)"]
                                          + cells) + " |\n\n"
-                path.write_text(row + path.read_text())
+                if location == "candidates":
+                    row = row.rstrip() + "  |  |\n"
+                    separator = "| " + " | ".join(["---"]*7) + " |\n"
+                    path.write_text(path.read_text().replace(separator, separator+row))
+                else:
+                    path.write_text(row + path.read_text())
                 event = {"issue": {"body": self.body()}}
                 self.assertTrue(any("Solution is already published" in error
                                     for error in claim.check_event(event, root)))
@@ -217,10 +232,37 @@ class MathDBClaimTests(unittest.TestCase):
             event = {"issue": {"body": self.body()}}
             self.assertTrue(any("Cannot check role availability" in error
                                 for error in claim.check_event(event, root)))
+
             self.write_registers(root)
             (root / "awards/README.md").write_text("### MathDB pilot awards\n\n| invalid | row |\n")
             self.assertTrue(any("Cannot check role availability" in error
                                 for error in claim.check_event(event, root)))
+
+    def test_shared_row_reserves_roles_with_independent_claim_links(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            url = "https://github.com/TheJustinSunPrize/awards/issues/123"
+            self.write_registers(root, [("candidates", "JSP-000001", "Lean", url)])
+            path = root / "candidates/README.md"
+            path.write_text(path.read_text().replace(
+                " |  |  | 2026-10-01 |", f" | 2026-10-02 | [Solver]({url}4) | 2026-10-01 |"))
+            event = {"issue": {"body": self.body(("Lean",)), "html_url": url}}
+            self.assertEqual(claim.check_event(event, root), [])
+            event["issue"]["body"] = self.body(("Solution", "Lean"))
+            errors = claim.check_event(event, root)
+            self.assertEqual(len(errors), 1)
+            self.assertIn("Solution is already published", errors[0])
+            event["issue"]["body"] = self.body(("Exposition",))
+            self.assertEqual(claim.check_event(event, root), [])
+
+    def test_invalid_candidate_header_fails_role_availability_check(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.write_registers(root)
+            path = root / "candidates/README.md"
+            path.write_text(path.read_text().replace("Lean formalizer", "Unknown role"))
+            errors = claim.check_event({"issue": {"body": self.body()}}, root)
+            self.assertTrue(any("Cannot check role availability" in error for error in errors))
 
     def test_correction_and_dispute_templates_do_not_reserve_or_claim_roles(self):
         for title, headings in (("[Correction] JSP-000001", ("Record or document",

@@ -26,7 +26,7 @@ scope update and migration announcement. Contribution dates and notice periods r
 | JSP-000004 | [Hodge conjecture](catalog-0001-0100.md#JSP-000004) | [MathDB #315851](https://mathdb.com/p/315851/hodge-conjecture) |  |  |  |
 | JSP-000005 | [Existence and smoothness of the 3D Navier–Stokes equations](catalog-0001-0100.md#JSP-000005) | [MathDB #315852](https://mathdb.com/p/315852/navier-stokes-existence-and-smoothness) |  |  |  |
 | JSP-000003 | [Birch–Swinnerton-Dyer conjecture (BSD)](catalog-0001-0100.md#JSP-000003) | [MathDB #315850](https://mathdb.com/p/315850/birch-and-swinnerton-dyer-conjecture) |  |  |  |
-| JSP-000007 | [Poincaré conjecture](catalog-0001-0100.md#JSP-000007) | [MathDB #316224](https://mathdb.com/p/316224/poincare-conjecture) |  |  |  |
+| JSP-000007 | [Poincaré conjecture](catalog-0001-0100.md#JSP-000007) | [MathDB #316224](https://mathdb.com/p/316224/poincare-conjecture) |  | Candidate |  |
 | JSP-001023 | [Global Langlands functoriality conjecture](catalog-1001-1022.md#JSP-001023) | [MathDB #405775](https://mathdb.com/p/405775/global-langlands-functoriality-conjecture) |  |  |  |
 | JSP-000010 | [abc conjecture](catalog-0001-0100.md#JSP-000010) | [MathDB #316096](https://mathdb.com/p/316096/abc-conjecture) |  |  |  |
 | JSP-000021 | [Schanuel conjecture](catalog-0001-0100.md#JSP-000021) | [MathDB #316100](https://mathdb.com/p/316100/schanuel-s-conjecture) |  |  |  |

@@ -183,7 +183,7 @@ must be opaque and must not encode an email or identity document.
 
 ## Team records and migration
 
-Follow each category in the [candidate register](candidates/README.md#mathdb-pilot-candidates)
+Follow each category in the [candidate register](candidates/README.md#candidate-register)
 and [award register](awards/README.md#mathdb-pilot-awards). Only the team publishes
 public-review start/end, announcements and verified payment status. Do not start
 the 14-day clock at the event, issue or email. Identity checks can run in parallel;
