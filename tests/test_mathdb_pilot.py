@@ -49,9 +49,11 @@ class PilotTests(unittest.TestCase):
             offset = {"Solution": 1, "Lean": 3, "Exposition": 5}[category]
             values[offset:offset+2] = ["Pending actual publication", claimant]
         else:
-            count = 9
+            count = 5
+            role = {"Solution": "Mathematical solution",
+                    "Lean": "Lean formalization"}.get(category, category)
             values = [f"[{jsp}](../problems/catalog-0001-0100.md#{jsp})",
-                      category, claimant, "mathdb"] + ["test evidence"]*(count-4)
+                      role, claimant, "2026-10-01", "2026-10-15"]
         row = "| " + " | ".join(values) + " |\n"
         separator = "| " + " | ".join(["---"]*count) + " |\n"
         path.write_text(content.replace(separator, separator+row, 1), encoding="utf-8")
@@ -209,12 +211,42 @@ class PilotTests(unittest.TestCase):
             pilot.synchronize(root, write=True)
             pilot.synchronize(root)
 
-    def test_out_of_scope_or_unknown_category_cannot_create_status(self):
-        for category, jsp in (("Exposition", "JSP-000011"), ("Both", "JSP-000001")):
+    def test_unknown_award_category_cannot_create_status(self):
+        for jsp in ("JSP-000001", "JSP-000011"):
             with tempfile.TemporaryDirectory() as directory:
                 root = Path(directory)
                 self.copy_fixture(root)
-                self.register_row(root, "awards", category, jsp)
+                self.register_row(root, "awards", "Both", jsp)
+                with self.assertRaises(pilot.InvalidPilot):
+                    pilot.claim_states(root, self.manifest)
+
+    def test_shared_awards_separate_legacy_and_pilot_roles(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.copy_fixture(root)
+            self.register_row(root, "awards", "Solution", "JSP-000011")
+            for category in ("Solution", "Lean", "Exposition"):
+                self.register_row(root, "awards", category)
+            states = pilot.claim_states(root, self.manifest)
+            self.assertNotIn("JSP-000011", states)
+            self.assertNotIn("JSP-000110", states)
+            self.assertEqual(states["JSP-000001"], {
+                "Solution": "Awarded", "Lean": "Awarded", "Exposition": "Awarded"})
+            pilot.synchronize(root, write=True)
+            pilot.synchronize(root)
+
+    def test_malformed_awards_cannot_silently_remove_awarded_state(self):
+        for old, new in (("## Award register", "## Unknown register"),
+                         ("| Recipients |", "| Unknown column |"),
+                         ("| Mathematical solution |", "| Both |"),
+                         ("| 2026-10-15 |", "|  |"),
+                         ("| 2026-10-15 |", "| 2026-10-15 | extra |")):
+            with self.subTest(old=old, new=new), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                self.copy_fixture(root)
+                self.register_row(root, "awards", "Solution")
+                path = root / "awards/README.md"
+                path.write_text(path.read_text().replace(old, new, 1))
                 with self.assertRaises(pilot.InvalidPilot):
                     pilot.claim_states(root, self.manifest)
 
@@ -236,7 +268,7 @@ class PilotTests(unittest.TestCase):
             path = root / "candidates/README.md"
             path.write_text(path.read_text().replace(row, row.replace(
                 "Pending actual publication | Test contributor",
-                " | [Awarded](../awards/README.md#mathdb-pilot-awards)")))
+                " | [Awarded](../awards/README.md#award-register)")))
             self.register_row(root, "awards", "Solution")
             self.assertEqual(pilot.claim_states(root, self.manifest)["JSP-000001"], {
                 "Solution": "Awarded", "Lean": "", "Exposition": ""})

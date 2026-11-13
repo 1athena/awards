@@ -13,6 +13,7 @@ import re
 import sys
 
 from candidate_register import candidate_records, public_name
+from award_register import award_records
 
 ROOT = Path(__file__).resolve().parents[1]
 BEGIN = "<!-- BEGIN MathDB pilot metadata -->"
@@ -170,35 +171,17 @@ def claim_states(root, value):
     records = {}
     try:
         candidates = candidate_records(root)
+        awards = award_records(root)
     except (OSError, ValueError) as error:
         raise InvalidPilot(str(error)) from error
     for jsp, category, claimant in candidates:
         if jsp in states:
             records[(jsp, category, public_name(claimant))] = "Candidate"
             states[jsp][category] = "Candidate"
-    path = root / "awards/README.md"
-    require(path.is_file() and not path.is_symlink() and
-            is_safe_relative(path, root), "Missing/unsafe public register")
-    content = path.read_text(encoding="utf-8")
-    marker = "### MathDB pilot awards\n"
-    require(content.count(marker) == 1, "Missing/duplicate MathDB register section")
-    content = content.split(marker, 1)[1]
-    content = re.split(r"(?m)^#{1,3} ", content, maxsplit=1)[0]
-    for line in content.splitlines():
-        if not line.startswith("| "):
+    for jsp, category, claimant in awards:
+        if jsp not in states:
             continue
-        cells = [cell.strip() for cell in line.split("|")[1:-1]]
-        require(cells, "Empty public register row")
-        if cells[0] == "Problem ID" or all(cell == "---" for cell in cells):
-            continue
-        require(len(cells) == 9,
-                "Incorrect public register columns")
-        identifier = re.fullmatch(r"\[(JSP-\d{6})\]\([^\s]+\)", cells[0])
-        require(identifier and identifier[1] in states, "Register contains an out-of-scope JSP")
-        jsp, category = identifier[1], cells[1]
-        require(category in CATEGORIES, "Unknown pilot contribution category")
-        require(cells[3] == value["rules_version"], "Public register rules-version mismatch")
-        record_key = (jsp, category, public_name(cells[2]))
+        record_key = (jsp, category, public_name(claimant))
         require(records.get(record_key) in {None, "Awarded"},
                 "The same claimant/category cannot be both active candidate and awarded")
         records[record_key] = "Awarded"

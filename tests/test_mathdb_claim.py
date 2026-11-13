@@ -157,14 +157,15 @@ class MathDBClaimTests(unittest.TestCase):
 
     def write_registers(self, root, occupied=None):
         from candidate_register import HEADERS, EXPOSITION_HEADERS
+        from award_register import HEADERS as AWARD_HEADERS
         for location, heading, count in (("candidates", "Candidate register", 7),
-                                          ("awards", "MathDB pilot awards", 9)):
+                                          ("awards", "Award register", 5)):
             directory = root / location
             directory.mkdir(exist_ok=True)
-            content = f"{'##' if location == 'candidates' else '###'} {heading}\n\n"
-            if location == "candidates":
-                content += "| " + " | ".join(HEADERS + EXPOSITION_HEADERS) + " |\n"
-                content += "| " + " | ".join(["---"]*count) + " |\n"
+            content = f"## {heading}\n\n"
+            headers = HEADERS + EXPOSITION_HEADERS if location == "candidates" else AWARD_HEADERS
+            content += "| " + " | ".join(headers) + " |\n"
+            content += "| " + " | ".join(["---"]*count) + " |\n"
             for record_location, jsp, category, issue_url in occupied or []:
                 if record_location == location:
                     if location == "candidates":
@@ -172,9 +173,10 @@ class MathDBClaimTests(unittest.TestCase):
                         offset = {"Solution": 1, "Lean": 3, "Exposition": 5}[category]
                         cells[offset:offset+2] = ["2026-10-01", f"[Public contributor]({issue_url})"]
                     else:
-                        cells = [f"[{jsp}](../problems/catalog.md#{jsp})", category,
-                                 "Public contributor", "mathdb", "https://mathdb.com/p/123",
-                                 f"[Claim]({issue_url})"] + ["evidence"]*(count-6)
+                        role = {"Solution": "Mathematical solution",
+                                "Lean": "Lean formalization"}.get(category, category)
+                        cells = [f"[{jsp}](../problems/catalog.md#{jsp})", role,
+                                 f"[Public contributor]({issue_url})", "2026-10-01", "2026-10-15"]
                     content += "| " + " | ".join(cells) + " |\n"
             (directory / "README.md").write_text(content)
 
@@ -219,7 +221,8 @@ class MathDBClaimTests(unittest.TestCase):
                     separator = "| " + " | ".join(["---"]*7) + " |\n"
                     path.write_text(path.read_text().replace(separator, separator+row))
                 else:
-                    path.write_text(row + path.read_text())
+                    separator = "| " + " | ".join(["---"]*5) + " |\n"
+                    path.write_text(path.read_text().replace(separator, separator+row))
                 event = {"issue": {"body": self.body()}}
                 self.assertTrue(any("Solution is already published" in error
                                     for error in claim.check_event(event, root)))
@@ -234,9 +237,34 @@ class MathDBClaimTests(unittest.TestCase):
                                 for error in claim.check_event(event, root)))
 
             self.write_registers(root)
-            (root / "awards/README.md").write_text("### MathDB pilot awards\n\n| invalid | row |\n")
+            (root / "awards/README.md").write_text("## Award register\n\n| invalid | row |\n")
             self.assertTrue(any("Cannot check role availability" in error
                                 for error in claim.check_event(event, root)))
+
+    def test_awarded_recipients_can_update_their_linked_claims(self):
+        for category in ("Solution", "Lean", "Exposition"):
+            with self.subTest(category=category), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                url = "https://github.com/TheJustinSunPrize/awards/issues/123"
+                self.write_registers(root, [("awards", "JSP-000001", category, url)])
+                path = root / "awards/README.md"
+                path.write_text(path.read_text().replace(
+                    f"[Public contributor]({url})", f"[Public contributor]({url}); [Coauthor]({url}4)"))
+                for own_url in (url, url + "4"):
+                    event = {"issue": {"body": self.body((category,)), "html_url": own_url}}
+                    self.assertEqual(claim.check_event(event, root), [])
+                event["issue"]["html_url"] = url + "5"
+                self.assertTrue(any(f"{category} is already published" in error
+                                    for error in claim.check_event(event, root)))
+
+    def test_invalid_award_header_fails_role_availability_check(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.write_registers(root)
+            path = root / "awards/README.md"
+            path.write_text(path.read_text().replace("Recipients", "Unknown column"))
+            errors = claim.check_event({"issue": {"body": self.body()}}, root)
+            self.assertTrue(any("Cannot check role availability" in error for error in errors))
 
     def test_shared_row_reserves_roles_with_independent_claim_links(self):
         with tempfile.TemporaryDirectory() as directory:
