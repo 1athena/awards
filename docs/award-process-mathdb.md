@@ -211,8 +211,12 @@ confirm current verification of a complete Lean formalization for that problem,
 including any explicitly adopted external verification record.
 
 Publish the confirmed category in the
-[award register](../awards/README.md#mathdb-pilot-awards), retain its completed
-public-review dates, evidence and claim links, and update the candidate record.
+[shared Award register](../awards/README.md#award-register), using one row per
+contribution type: Mathematical solution (Solution), Lean formalization (Lean),
+or Exposition. Retain the completed public-review dates and link recipients to
+their claim issues. Keep the rules version, fixed evidence, announcement,
+candidate history and team-confirmed payment status in those linked records,
+and update the candidate register.
 Keep other categories pending as appropriate. Record **announced / awaiting
 payment** separately from **paid**; only a team-confirmed payment result permits
 the latter. Closing an issue or reaching the review end is not payment evidence.
