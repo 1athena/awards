@@ -31,6 +31,8 @@ Problem links provide the recorded contribution attribution and proof evidence.
 
 | Problem ID | Contribution type | Recipients | Public-review start (UTC) | Public-review end (UTC) |
 | --- | --- | --- | --- | --- |
+| [JSP-000110](../problems/catalog-0101-0200.md#JSP-000110) | Mathematical solution | Liam Kruer; Jensen Kohlmeyer; Liam Price (equal coauthors) | 2026-10-30 | 2026-11-13 |
+| [JSP-000110](../problems/catalog-0101-0200.md#JSP-000110) | Lean formalization | Liam Kruer; Jensen Kohlmeyer; Liam Price (equal coauthors) | 2026-10-30 | 2026-11-13 |
 | [JSP-000239](../problems/catalog-0201-0300.md#JSP-000239) | Mathematical solution | Neel Somani | 2026-09-30 | 2026-10-14 |
 | [JSP-000305](../problems/catalog-0301-0400.md#JSP-000305) | Lean formalization | Wouter van Doorn | 2026-09-19 | 2026-10-03 |
 | [JSP-000327](../problems/catalog-0301-0400.md#JSP-000327) | Mathematical solution | Neel Somani | 2026-09-30 | 2026-10-14 |
@@ -38,6 +40,7 @@ Problem links provide the recorded contribution attribution and proof evidence.
 | [JSP-000381](../problems/catalog-0301-0400.md#JSP-000381) | Lean formalization | Wouter van Doorn | 2026-09-19 | 2026-10-03 |
 | [JSP-000526](../problems/catalog-0501-0600.md#JSP-000526) | Mathematical solution | Wouter van Doorn; Yanyang Li; Quanyu Tang | 2026-09-19 | 2026-10-03 |
 | [JSP-000526](../problems/catalog-0501-0600.md#JSP-000526) | Lean formalization | Wouter van Doorn | 2026-09-19 | 2026-10-03 |
+| [JSP-000697](../problems/catalog-0601-0700.md#JSP-000697) | Lean formalization | [peilinliu66-dev](https://github.com/peilinliu66-dev) | 2026-10-30 | 2026-11-13 |
 | [JSP-000866](../problems/catalog-0801-0900.md#JSP-000866) | Mathematical solution | Quanyu Tang | 2026-09-19 | 2026-10-03 |
 | [JSP-001001](../problems/catalog-1001-1022.md#JSP-001001) | Mathematical solution | Yanyang Li; Quanyu Tang | 2026-09-19 | 2026-10-03 |
 
