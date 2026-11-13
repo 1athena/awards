@@ -1,25 +1,24 @@
 # Confirmed awards
 
-For [MathDB pilot problems](../problems/mathdb-pilot.md), use the
-[new confirmation and payment rules](../docs/award-process-mathdb.md#5-announcement-and-payment)
-and the [pilot rows below](#mathdb-pilot-awards). Preserve the existing award
-register and historical decisions. The legacy process described below applies
-to legacy records; no historical reward is automatically recalculated.
+All confirmed, publicly announced awards use the shared [Award register](#award-register)
+below. Follow the applicable [legacy confirmation and delivery process](../docs/award-process.md#step-3-recipient-confirmation-and-award-delivery)
+or [MathDB confirmation and payment rules](../docs/award-process-mathdb.md#5-announcement-and-payment)
+before publishing an award. Preserve historical decisions; no historical reward
+is automatically recalculated.
 
-Only confirmed, publicly announced awards belong here.
-Follow the [confirmation and delivery process](../docs/award-process.md#step-3-recipient-confirmation-and-award-delivery)
-before publishing an award.
+Record each contribution type in a separate row: **Mathematical solution**,
+**Lean formalization** or **Exposition**. These correspond to Solution, Lean and
+Exposition in the MathDB process. Preserve each recipient's attribution and the
+completed public-review dates, including the precision of the original record.
 
-Record each awarded contribution in English Markdown, identifying the JSP
-problem, contribution type, recipients, announcement link,
-completed public-review dates and supporting evidence. Mathematical solution and
-Lean formalization contributions are recorded separately. Update the candidate
-register for the awarded contribution. Change only that role's claim status
-from **Unclaimed** to **Claimed** in the problem index when it moves from
-`candidates/` to `awards/`, and retain that status after its candidate entry is
-removed. Any other eligible role still in candidate review remains **Unclaimed**.
+For new records, link each recipient to their claim issue. Keep the applicable
+rules version, fixed proof or material references, announcement, candidate
+history and team-confirmed delivery status in that linked record. Legacy rows
+retain their existing evidence links and history.
 
-See the [record guide](../docs/records.md) and optional [Markdown templates](../docs/templates/).
+Update the candidate register and the corresponding index role when an award is
+published. See the [record guide](../docs/records.md) for status conventions and
+regeneration of the pilot index and page.
 
 ## Award register
 
@@ -43,29 +42,3 @@ Problem links provide the recorded contribution attribution and proof evidence.
 | [JSP-000697](../problems/catalog-0601-0700.md#JSP-000697) | Lean formalization | [peilinliu66-dev](https://github.com/peilinliu66-dev) | 2026-10-30 | 2026-11-13 |
 | [JSP-000866](../problems/catalog-0801-0900.md#JSP-000866) | Mathematical solution | Quanyu Tang | 2026-09-19 | 2026-10-03 |
 | [JSP-001001](../problems/catalog-1001-1022.md#JSP-001001) | Mathematical solution | Yanyang Li; Quanyu Tang | 2026-09-19 | 2026-10-03 |
-
-### MathDB pilot awards
-
-Publish a category only after the team's qualification, identity and personal
-written confirmations, 14-day public review, resolved material objections and
-applicable payment conditions are complete. Both Solution and Exposition require
-current complete Lean verification of the original problem or MathDB's explicit
-adoption of external evidence before announcement and payment.
-The formalizer's own award is not a prerequisite. Retain fixed versions, evidence,
-claim and candidate-history links; the register records no levels or estimates.
-
-No MathDB pilot awards have been announced yet.
-
-| Problem ID | Category | Confirmed recipients | Rules version | MathDB / fixed evidence | Claim issue | Completed public review (UTC start/end) | Announcement and retained candidate history | Payment status and team confirmation |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-
-Distinguish `Announced / awaiting payment` from `Paid`; the latter requires the
-team's confirmed payment result, without publishing private payment details.
-Closing an issue, elapsed notice or an agent notification is not payment evidence.
-The team retains any later correction/revocation and its evidence in the history.
-
-Use category `Solution`, `Lean` or `Exposition`. After updating these rows and the
-candidate table, run `python3 scripts/mathdb_pilot.py build` and commit the generated
-index/pilot page. The category's `Awarded` registration state reports this announced
-record; the detailed record controls any later correction/revocation and whether
-payment has been confirmed.

@@ -88,7 +88,7 @@ including Exposition. Each category uses independent public-registration states:
 
 The pilot page and these index cells are generated from the category-specific
 [candidate](../candidates/README.md#candidate-register) and
-[award](../awards/README.md#mathdb-pilot-awards) tables. A published Exposition
+[award](../awards/README.md#award-register) tables. A published Exposition
 record changes only Exposition on the pilot page. Candidate publication may
 precede complete Lean verification; an award announcement requires that verification,
 the committee's selection and all applicable personal/team checks. Catalog flags
