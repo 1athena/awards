@@ -1,0 +1,916 @@
+{
+  "schema_version": 1,
+  "rules_version": "mathdb",
+  "rollout": {
+    "status": "prepared",
+    "effective_at": null,
+    "activation_evidence": null
+  },
+  "problems": [
+    {
+      "jsp": "JSP-000002",
+      "title": "P versus NP problem",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Determine whether P equals NP. A complete proof of either equality or separation resolves the question for the standard polynomial-time decision-problem classes.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315853,
+        "url": "https://mathdb.com/p/315853/p-versus-np-problem",
+        "title": "P versus NP problem",
+        "checked_at": "2026-10-21",
+        "evidence": [
+          "https://mathdb.com/p/315853/p-versus-np-problem"
+        ],
+        "note": "The corrected main statement asks whether P equals NP and explicitly accepts a complete proof of either equality or separation. Statement correspondence checked on 2026-10-21; this mapping is not proof acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000001",
+      "title": "Riemann hypothesis",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Do all nontrivial zeros of the Riemann zeta function have real part one half? This determines how tightly errors in prime distribution can be bounded.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315854,
+        "url": "https://mathdb.com/p/315854/riemann-hypothesis",
+        "title": "Riemann hypothesis",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/315854/riemann-hypothesis"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000006",
+      "title": "Yang–Mills existence and mass gap",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Construct a nontrivial quantum Yang–Mills theory rigorously in four dimensions and prove a positive energy gap between the vacuum and the lowest nonzero excitation.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315855,
+        "url": "https://mathdb.com/p/315855/yang-mills-existence-and-mass-gap",
+        "title": "Yang–Mills existence and mass gap",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/315855/yang-mills-existence-and-mass-gap"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000004",
+      "title": "Hodge conjecture",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "On a smooth complex projective variety, is every rational Hodge class of equal bidegree a rational linear combination of classes of algebraic subvarieties?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315851,
+        "url": "https://mathdb.com/p/315851/hodge-conjecture",
+        "title": "Hodge conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/315851/hodge-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000005",
+      "title": "Existence and smoothness of the 3D Navier–Stokes equations",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "For three-dimensional incompressible viscous flow, do smooth initial data always yield globally smooth solutions, or can finite-time singularities be constructed under the official conditions?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315852,
+        "url": "https://mathdb.com/p/315852/navier-stokes-existence-and-smoothness",
+        "title": "Navier–Stokes existence and smoothness",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/315852/navier-stokes-existence-and-smoothness"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000003",
+      "title": "Birch–Swinnerton-Dyer conjecture (BSD)",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Does the rank of an elliptic curve's rational-point group equal the order of vanishing of its L-function at one? The strong form also predicts the leading coefficient.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315850,
+        "url": "https://mathdb.com/p/315850/birch-and-swinnerton-dyer-conjecture",
+        "title": "Birch and Swinnerton-Dyer conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/315850/birch-and-swinnerton-dyer-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000007",
+      "title": "Poincaré conjecture",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Every closed, connected, simply connected topological three-manifold is homeomorphic to the three-sphere. This is the three-dimensional conjecture proved by Perelman.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 316224,
+        "url": "https://mathdb.com/p/316224/poincare-conjecture",
+        "title": "Poincaré conjecture",
+        "checked_at": "2026-10-25",
+        "evidence": [
+          "https://mathdb.com/p/316224/poincare-conjecture"
+        ],
+        "note": "Public page statement checked against the solved three-dimensional conjecture and catalog scope on 2026-10-25. Added to the 50-problem pilot in place of the smooth four-dimensional conjecture, which has been removed from the catalog. This mapping is not proof acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001023",
+      "title": "Global Langlands functoriality conjecture",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "For every number field, quasi-split connected reductive groups and admissible homomorphism of their L-groups, establish the predicted transfer of automorphic representations, matching unramified local parameters. The precise weak-transfer convention must match the selected MathDB statement.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 405775,
+        "url": "https://mathdb.com/p/405775/global-langlands-functoriality-conjecture",
+        "title": "Global Langlands Functoriality Conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/405775/global-langlands-functoriality-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000010",
+      "title": "abc conjecture",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "For coprime positive integers summing to a third, and any positive error exponent, are there only finitely many cases where the third exceeds the radical of their product raised to one plus that exponent?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 316096,
+        "url": "https://mathdb.com/p/316096/abc-conjecture",
+        "title": "abc conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/316096/abc-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000021",
+      "title": "Schanuel conjecture",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "For complex numbers linearly independent over the rationals, does the field generated by them and their exponentials have transcendence degree at least their number?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 316100,
+        "url": "https://mathdb.com/p/316100/schanuel-s-conjecture",
+        "title": "Schanuel's conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/316100/schanuel-s-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001024",
+      "title": "Strominger–Yau–Zaslow Conjecture",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "For every polarized maximal degeneration of Calabi–Yau n-folds, n>=2, and every epsilon>0, prove that all sufficiently small nonzero fibres have an open subset of at least (1-epsilon) of the Ricci-flat volume admitting a smooth fibration by special Lagrangian n-tori of a common phase. This selects the metric SYZ statement; stronger collapsing and global-duality statements are not required by this entry.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 397030,
+        "url": "https://mathdb.com/p/397030/strominger-yau-zaslow-conjecture",
+        "title": "Strominger–Yau–Zaslow conjecture",
+        "checked_at": "2026-10-21",
+        "evidence": [
+          "https://mathdb.com/p/397030/strominger-yau-zaslow-conjecture"
+        ],
+        "note": "Following the mirror-symmetry split, this existing JSP retains MathDB #397030 and selects its metric SYZ statement. Hodge-theoretic mirror symmetry is a separate problem, [JSP-001072](catalog-1001-1022.md#JSP-001072). Statement correspondence checked on 2026-10-21; acceptance does not transfer between the two problems."
+      }
+    },
+    {
+      "jsp": "JSP-001072",
+      "title": "Mirror symmetry conjecture",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "For mirror pairs in the Katzarkov–Kontsevich–Pantev framework, identify the A-model and B-model noncommutative Hodge structures, including Calabi–Yau and Landau–Ginzburg settings. In families, the mirror map must identify the connections, extensions across u=0, rational structures and Stokes filtrations; numerical Hodge-number equalities alone do not resolve this problem.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 408863,
+        "url": "https://mathdb.com/p/408863/hodge-theoretic-mirror-symmetry-conjecture-katzarkov-kontsev",
+        "title": "Hodge-theoretic mirror symmetry conjecture (Katzarkov–Kontsevich–Pantev)",
+        "checked_at": "2026-10-21",
+        "evidence": [
+          "https://mathdb.com/p/408863/hodge-theoretic-mirror-symmetry-conjecture-katzarkov-kontsev"
+        ],
+        "note": "Added as a separate problem in the mirror-symmetry split. MathDB #408863 selects the KKP noncommutative-Hodge comparison, distinct from metric SYZ in [JSP-001024](catalog-1001-1022.md#JSP-001024) and from a homological-category equivalence. Statement correspondence checked on 2026-10-21; this mapping is not proof acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001025",
+      "title": "Existence of one-way functions",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Does a polynomial-time computable function family exist that is hard to invert on uniformly random inputs for every probabilistic polynomial-time algorithm, with the specified asymptotic security condition?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 405776,
+        "url": "https://mathdb.com/p/405776/existence-of-one-way-functions",
+        "title": "Existence of One-Way Functions",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/405776/existence-of-one-way-functions"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000015",
+      "title": "Kakeya dimension conjecture (general dimension)",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Must a set containing a unit line segment in every direction have full Hausdorff dimension in its Euclidean ambient space?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315983,
+        "url": "https://mathdb.com/p/315983/kakeya-conjecture",
+        "title": "Kakeya conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/315983/kakeya-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001026",
+      "title": "Grothendieck's standard conjectures",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Prove the standard conjectures on algebraic cycles for smooth projective varieties and Weil cohomology, including the specified algebraicity, equivalence and positivity assertions. The approved formulation must identify which members of this package are required.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315943,
+        "url": "https://mathdb.com/p/315943/standard-conjectures",
+        "title": "Standard conjectures",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/315943/standard-conjectures"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000028",
+      "title": "Bateman–Horn conjecture",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "For irreducible integer polynomials with no prime dividing every value of their product, does the count of simultaneous prime values obey the predicted asymptotic law?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 406223,
+        "url": "https://mathdb.com/p/406223/bateman-horn-conjecture",
+        "title": "Bateman Horn Conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/406223/bateman-horn-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001027",
+      "title": "Termination of flips in the minimal model program",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Prove that every sequence of flips projective over a fixed variety S, starting from a klt pair (X,B) with real-divisor boundary B, terminates in every dimension. This is the standard all-dimensional klt formulation; the usual characteristic-zero lc termination problem reduces to the klt case.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 394012,
+        "url": "https://mathdb.com/p/394012/termination-conjecture-for-flips-of-klt-pairs",
+        "title": "Termination conjecture for flips of klt pairs",
+        "checked_at": "2026-10-13",
+        "evidence": [
+          "https://mathdb.com/p/394012/termination-conjecture-for-flips-of-klt-pairs",
+          "https://www.math.kyoto-u.ac.jp/~fujino/MMP21-s.pdf"
+        ],
+        "note": "The page is the standard klt-pair termination conjecture with real boundary over a fixed base. Fujino, Introduction to the log minimal model program for log canonical pairs, Conjecture 3.15 and the following discussion (page 76), explains the reduction of ordinary lc termination to all-dimensional klt termination. Preserve the characteristic-zero, pair, coefficient and base hypotheses; this is not a claim about generalized pairs or other characteristics."
+      }
+    },
+    {
+      "jsp": "JSP-000014",
+      "title": "Inverse Galois problem",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Is every finite group the Galois group of a finite Galois extension of the rational numbers?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315889,
+        "url": "https://mathdb.com/p/315889/inverse-galois-problem",
+        "title": "inverse Galois problem",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/315889/inverse-galois-problem"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000008",
+      "title": "Goldbach conjecture (strong Goldbach)",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Is every even integer greater than two a sum of two primes?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 316061,
+        "url": "https://mathdb.com/p/316061/goldbach-s-conjecture",
+        "title": "Goldbach's conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/316061/goldbach-s-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000009",
+      "title": "Twin prime conjecture",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Are there infinitely many pairs of primes differing by exactly two?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 316128,
+        "url": "https://mathdb.com/p/316128/twin-prime-conjecture",
+        "title": "Twin prime conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/316128/twin-prime-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001028",
+      "title": "Tate conjecture for algebraic cycles",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "For smooth projective varieties over the stated finitely generated fields and primes invertible in the field, are the Galois-invariant classes in the relevant l-adic cohomology spanned by algebraic-cycle classes, in every required codimension?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315944,
+        "url": "https://mathdb.com/p/315944/tate-conjecture",
+        "title": "Tate conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/315944/tate-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000037",
+      "title": "Jacobian conjecture",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Over a characteristic-zero field, must a polynomial self-map with nonzero constant Jacobian determinant have a polynomial inverse? This entry covers both dimension two and dimensions n≥3.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315779,
+        "url": "https://mathdb.com/p/315779/jacobian-conjecture",
+        "title": "Jacobian conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/315779/jacobian-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001029",
+      "title": "Bombieri–Lang conjecture for varieties of general type",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "For every smooth projective variety X of general type and positive dimension over a number field k, prove that X(k) is not Zariski dense in X. This record uses the non-density form of Bombieri-Lang; it does not add the stronger exceptional-locus form.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 395886,
+        "url": "https://mathdb.com/p/395886/bombieri-lang-conjecture-on-zariski-density",
+        "title": "Bombieri–Lang conjecture on Zariski density",
+        "checked_at": "2026-10-13",
+        "evidence": [
+          "https://mathdb.com/p/395886/bombieri-lang-conjecture-on-zariski-density"
+        ],
+        "note": "MathDB #395886 states the selected general-type non-density form directly. The former #316090 also includes that form, but bundles it with the surface case and a stronger refined form; the replacement removes that qualification ambiguity. A bibliography detection year is not the original conjecture date."
+      }
+    },
+    {
+      "jsp": "JSP-001030",
+      "title": "Novikov conjecture on higher signatures",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Are the higher signatures associated with cohomology classes of a group homotopy invariants of closed oriented manifolds equipped with the relevant map to its classifying space, for arbitrary groups?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 316146,
+        "url": "https://mathdb.com/p/316146/novikov-conjecture",
+        "title": "Novikov conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/316146/novikov-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001031",
+      "title": "Farrell–Jones conjecture in algebraic K- and L-theory",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Are the assembly maps from the virtually-cyclic-family equivariant homology to the K- and L-theory of group rings isomorphisms in every required degree? The approved statement fixes coefficients and any fibered version.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315862,
+        "url": "https://mathdb.com/p/315862/farrell-jones-conjecture",
+        "title": "Farrell–Jones conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/315862/farrell-jones-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000012",
+      "title": "Legendre conjecture",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Is there a prime between every pair of consecutive positive-integer squares?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 316127,
+        "url": "https://mathdb.com/p/316127/legendre-s-conjecture",
+        "title": "Legendre's conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/316127/legendre-s-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000013",
+      "title": "Hadamard matrix conjecture",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Does every positive multiple of four admit a square matrix of that order with entries plus or minus one and mutually orthogonal rows?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315867,
+        "url": "https://mathdb.com/p/315867/hadamard-conjecture",
+        "title": "Hadamard conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/315867/hadamard-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000029",
+      "title": "Dickson conjecture",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Do finitely many integer linear polynomials with positive leading coefficients take prime values simultaneously infinitely often whenever no fixed prime divisor obstructs this?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 316119,
+        "url": "https://mathdb.com/p/316119/dickson-s-conjecture",
+        "title": "Dickson's conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/316119/dickson-s-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001032",
+      "title": "Grothendieck's generalized Hodge conjecture",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "For a smooth complex projective variety, is every rational sub-Hodge structure of the specified Hodge coniveau supported on an algebraic subset of the corresponding codimension? Use the corrected generalized Hodge formulation, rather than the original naive statement.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 395066,
+        "url": "https://mathdb.com/p/395066/generalized-hodge-grothendieck-conjecture",
+        "title": "Generalized Hodge–Grothendieck Conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/395066/generalized-hodge-grothendieck-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001033",
+      "title": "Matrix-multiplication exponent equals two",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Is the exponent omega of matrix multiplication equal to two, meaning that for every positive epsilon there are arithmetic algorithms using O(n^(2+epsilon)) operations? Equality of the infimum does not require a single O(n^2) algorithm.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 346080,
+        "url": "https://mathdb.com/p/346080/the-exponent-two-conjecture-for-matrix-multiplication",
+        "title": "The exponent-two conjecture for matrix multiplication",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/346080/the-exponent-two-conjecture-for-matrix-multiplication"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001034",
+      "title": "Generalized Ramanujan conjecture for GL_n",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "For every number field and cuspidal automorphic representation of GL_n with unitary central character, are all local components tempered in the specified formulation?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 405783,
+        "url": "https://mathdb.com/p/405783/generalized-ramanujan-conjecture-for-gl-n",
+        "title": "Generalized Ramanujan Conjecture for GL_n",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/405783/generalized-ramanujan-conjecture-for-gl-n"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001035",
+      "title": "Extended states in the Anderson model in dimension at least three",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "For the Anderson model in dimension at least three and suitable sufficiently weak disorder, establish an absolutely continuous spectral region as specified by the original formulation. Fix the lattice, random potential law, disorder range and precise spectral assertion before qualification.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 389103,
+        "url": "https://mathdb.com/p/389103/extended-states-in-the-anderson-model",
+        "title": "Extended States in the Anderson Model",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/389103/extended-states-in-the-anderson-model"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001036",
+      "title": "Extension of Kronecker's theorem to arbitrary number fields (Hilbert's twelfth problem)",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Construct generators of finite abelian extensions of every number field using special values of explicit analytic or arithmetic functions, extending the classical constructions over the rationals and imaginary quadratic fields.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 405786,
+        "url": "https://mathdb.com/p/405786/extension-of-kroneckers-theorem-on-abelian-fields-to-any-alg",
+        "title": "Extension of Kroneckers Theorem on Abelian Fields to Any Algebraic Base Field",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/405786/extension-of-kroneckers-theorem-on-abelian-fields-to-any-alg"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001037",
+      "title": "Spacetime Penrose inequality",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "For three-dimensional asymptotically flat Einstein initial data satisfying the dominant energy condition and with an outermost apparent horizon, prove the sharp ADM-mass bound m_ADM >= sqrt(A/(16*pi)) for the specified enclosing area and rigidity statement, or construct a counterexample satisfying the hypotheses. The solved time-symmetric Riemannian case alone does not settle this scope.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 405787,
+        "url": "https://mathdb.com/p/405787/prove-the-penrose-inequality-or-present-a-counterexample",
+        "title": "Prove the Penrose inequality or present a counterexample",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/405787/prove-the-penrose-inequality-or-present-a-counterexample"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001038",
+      "title": "Modularity of elliptic curves over number fields",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "For every number field K and elliptic curve E/K with End_K(E)=Z, prove the cohomological automorphic realization specified in Thorne Conjecture 2.6. The remaining case, with complex multiplication already defined over K, is described by class field theory. End_K(E)=Z is not the same as being geometrically non-CM. This problem is broader than rational-field modularity JSP-000036.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 405788,
+        "url": "https://mathdb.com/p/405788/modularity-of-elliptic-curves-over-number-fields-end-k-e-z",
+        "title": "Modularity of Elliptic Curves over Number Fields (End_K(E)=Z)",
+        "checked_at": "2026-10-13",
+        "evidence": [
+          "https://mathdb.com/p/405788/modularity-of-elliptic-curves-over-number-fields-end-k-e-z",
+          "https://www.dpmms.cam.ac.uk/~jat58/EMS.pdf"
+        ],
+        "note": "The statement matches Thorne Conjecture 2.6. Thorne explains after Conjecture 2.5 that curves with complex multiplication defined over K have abelian Galois representations described by class field theory. The End_K(E)=Z restriction is therefore the standard remaining modularity scope, not an arbitrary narrowing. Preserve it exactly; geometrically CM curves may still satisfy End_K(E)=Z."
+      }
+    },
+    {
+      "jsp": "JSP-001039",
+      "title": "Fontaine–Mazur conjecture on geometric Galois representations",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Determine whether the specified irreducible p-adic Galois representations that are unramified almost everywhere and geometric at primes over p arise from algebraic geometry, up to the allowed twists. Fix number fields, dimensions and the exact geometric hypotheses; a two-dimensional modularity special case alone does not establish the full conjecture.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 389372,
+        "url": "https://mathdb.com/p/389372/fontaine-mazur-geometric-galois-representation-conjecture",
+        "title": "Fontaine–Mazur geometric Galois-representation conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/389372/fontaine-mazur-geometric-galois-representation-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001040",
+      "title": "Fourier restriction conjecture",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Prove the full sphere extension estimate E: L^p(S^{n-1}) -> L^q(R^n) for every n>=3 and 1≤p,q≤infinity exactly when q>2n/(n-1) and q>=(n+1)p'/(n-1), where p' is the Hölder conjugate of p. The selected surface is the unit sphere; the known n=2 case or a smaller exponent range does not resolve this entry.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 403784,
+        "url": "https://mathdb.com/p/403784/fourier-restriction-conjecture-for-the-sphere-stein",
+        "title": "Fourier restriction conjecture for the sphere (Stein)",
+        "checked_at": "2026-10-21",
+        "evidence": [
+          "https://mathdb.com/p/403784/fourier-restriction-conjecture-for-the-sphere-stein"
+        ],
+        "note": "MathDB confirmed the sphere version as the selected problem, replacing the provisional general-hypersurface mapping. Statement correspondence checked on 2026-10-21 for all n>=3 and the full exponent range stated in the problem description; this mapping is not proof acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001041",
+      "title": "Grothendieck period conjecture",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Are the algebraic relations among periods of the specified algebraic varieties or motives exactly those predicted by their algebraic/geometric relations, equivalently the stated motivic-Galois-group dimension formulation where applicable? Fix the motivic category and allowed cycles before qualification.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 356355,
+        "url": "https://mathdb.com/p/356355/grothendieck-s-period-conjecture-for-motivic-galois-groups",
+        "title": "Grothendieck's period conjecture for motivic Galois groups",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/356355/grothendieck-s-period-conjecture-for-motivic-galois-groups"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001042",
+      "title": "Existence of one-way permutations",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Does a family of bijections on the stated finite input spaces exist that is computable in polynomial time and hard to invert on uniformly random inputs for probabilistic polynomial-time algorithms? This is not merely existence of one-way functions.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 405793,
+        "url": "https://mathdb.com/p/405793/existence-of-one-way-permutations",
+        "title": "Existence of One-Way Permutations",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/405793/existence-of-one-way-permutations"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001043",
+      "title": "Finiteness of Tate–Shafarevich groups for elliptic curves",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Is the Tate–Shafarevich group of every elliptic curve over the specified number fields finite? Confirm the base-field scope; a rational-field or fixed-rank case alone does not establish the arbitrary-number-field formulation.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 355259,
+        "url": "https://mathdb.com/p/355259/shafarevich-tate-finiteness-conjecture-for-elliptic-curves",
+        "title": "Shafarevich–Tate finiteness conjecture for elliptic curves",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/355259/shafarevich-tate-finiteness-conjecture-for-elliptic-curves"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001044",
+      "title": "Weight–monodromy conjecture",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "For smooth proper varieties over the specified non-archimedean local fields, does the monodromy filtration on l-adic cohomology satisfy the predicted purity of its graded pieces? Specify the field and cohomological version.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 378011,
+        "url": "https://mathdb.com/p/378011/the-weight-monodromy-conjecture-for-proper-smooth-varieties",
+        "title": "The weight-monodromy conjecture for proper smooth varieties",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/378011/the-weight-monodromy-conjecture-for-proper-smooth-varieties"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001045",
+      "title": "Zilber–Pink conjecture on unlikely intersections",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Prove the predicted non-density or finiteness of intersections with special subvarieties of unexpectedly large codimension, for the specified ambient semiabelian or Shimura settings. Fix the intended general version, rather than accepting one isolated ambient-space case.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 316098,
+        "url": "https://mathdb.com/p/316098/zilber-pink-conjecture",
+        "title": "Zilber–Pink conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/316098/zilber-pink-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001046",
+      "title": "Grothendieck–Teichmüller conjecture",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Is the canonical map from the absolute Galois group of the rationals to the specified profinite Grothendieck–Teichmüller group an isomorphism? Fix the profinite group and comparison map; related Lie-algebra freeness conjectures are distinct.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 348860,
+        "url": "https://mathdb.com/p/348860/grothendieck-teichmuller-conjecture",
+        "title": "Grothendieck–Teichmüller conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/348860/grothendieck-teichmuller-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001047",
+      "title": "Deligne's absolute Hodge conjecture",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "On every smooth projective variety over an algebraically closed characteristic-zero field of finite transcendence degree over Q, prove that Hodge classes are absolute Hodge: their paired etale and de Rham realizations correspond to a rational Hodge class under every embedding into C. Use the full absolute-Hodge formulation, not only the dR-absolute variant; the abelian-variety theorem does not settle the general conjecture.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 370916,
+        "url": "https://mathdb.com/p/370916/the-absolute-hodge-conjecture-for-hodge-classes",
+        "title": "The absolute Hodge conjecture for Hodge classes",
+        "checked_at": "2026-10-13",
+        "evidence": [
+          "https://mathdb.com/p/370916/the-absolute-hodge-conjecture-for-hodge-classes",
+          "https://arxiv.org/html/2510.10403v1",
+          "https://arxiv.org/html/2111.00216"
+        ],
+        "note": "MathDB #370916 gives the full absolute-Hodge statement, including both etale and de Rham realizations, following Conjecture 5.4.2 of Alice Lin, arXiv:2510.10403. The former #352426 uses the dR-absolute variant; its source, Tobias Kreutz, arXiv:2111.00216, Section 2.1, describes that notion as slightly weaker. The replacement matches the selected general conjecture. The paper date is not the original conjecture date."
+      }
+    },
+    {
+      "jsp": "JSP-000030",
+      "title": "Elliott–Halberstam conjecture",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Does the predicted average error bound for prime distribution in arithmetic progressions persist when moduli approach the size of the integer range?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 316120,
+        "url": "https://mathdb.com/p/316120/elliott-halberstam-conjecture",
+        "title": "Elliott–Halberstam conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/316120/elliott-halberstam-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001048",
+      "title": "Mumford–Tate conjecture for abelian varieties over number fields",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "For every abelian variety over a number field and each prime l, is the identity component of the l-adic algebraic monodromy group the l-adic extension of its Mumford–Tate group in the specified representation?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 332879,
+        "url": "https://mathdb.com/p/332879/the-mumford-tate-conjecture-for-abelian-varieties",
+        "title": "The Mumford--Tate conjecture for abelian varieties",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/332879/the-mumford-tate-conjecture-for-abelian-varieties"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-001049",
+      "title": "Effective Mordell conjecture for curves of genus at least two",
+      "catalog": "problems/catalog-1001-1022.md",
+      "workflow": "mathdb",
+      "scope": "Construct an algorithm that, given a number field K, a smooth projective geometrically connected curve X/K of genus at least two and a finite number-field extension L/K, computes the complete finite set X(L). This algorithmic effective-Mordell form supplies an effectively computable height bound for each input curve and field; qualitative finiteness alone is insufficient. A prescribed linear or polynomial uniform height bound is a stronger formulation and requires an explicit scope decision.",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 332964,
+        "url": "https://mathdb.com/p/332964/algorithmic-mordell-conjecture",
+        "title": "Algorithmic Mordell conjecture",
+        "checked_at": "2026-10-13",
+        "evidence": [
+          "https://mathdb.com/p/332964/algorithmic-mordell-conjecture",
+          "https://arxiv.org/html/1604.05043"
+        ],
+        "note": "The full MathDB search located #332964, which states Algorithmic Mordell for all smooth projective geometrically connected curves of genus at least two over number fields, including finite extensions. It matches Conjecture 6.1 of Ariyan Javanpeykar, arXiv:1604.05043, and the basic algorithmic effective-Mordell form selected here. The discussion after that conjecture explains that computing all points supplies an effectively computable height bound but does not imply prescribed linear or polynomial dependence on the field discriminant or curve height. Stronger quantitative reference: [MathDB #318788 — Strong Mordell for families](https://mathdb.com/p/318788/strong-mordell-conjecture-for-families-of-curves); that family-uniform bound is not automatically included in this record. Former related page #393610 only asserts existence of a Vojta-type constant and is not this approved mapping. The 2016 source date is not asserted as the original conjecture date."
+      }
+    },
+    {
+      "jsp": "JSP-000016",
+      "title": "Littlewood conjecture",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "For two real numbers, can the product of a positive integer and the distances of its two multiples to their nearest integers approach zero along an unbounded integer sequence?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 316099,
+        "url": "https://mathdb.com/p/316099/littlewood-conjecture",
+        "title": "Littlewood conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/316099/littlewood-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    },
+    {
+      "jsp": "JSP-000024",
+      "title": "Invariant subspace problem for Hilbert spaces",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Does every bounded linear operator on a separable infinite-dimensional complex Hilbert space have a nonzero proper closed invariant subspace?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315900,
+        "url": "https://mathdb.com/p/315900/invariant-subspace-problem",
+        "title": "Invariant subspace problem",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/315900/invariant-subspace-problem"
+        ],
+        "note": "Matched to the separable infinite-dimensional complex Hilbert-space problem JSP-000024. Banach-space counterexamples are outside this scope."
+      }
+    },
+    {
+      "jsp": "JSP-000025",
+      "title": "Lehmer–Mahler measure problem",
+      "catalog": "problems/catalog-0001-0100.md",
+      "workflow": "mathdb",
+      "scope": "Is the Mahler measure of an integer polynomial, whenever greater than one, separated from one by a uniform positive constant?",
+      "mathdb": {
+        "status": "confirmed",
+        "id": 315901,
+        "url": "https://mathdb.com/p/315901/lehmer-s-conjecture",
+        "title": "Lehmer's conjecture",
+        "checked_at": "2026-10-12",
+        "evidence": [
+          "https://mathdb.com/p/315901/lehmer-s-conjecture"
+        ],
+        "note": "Public page statement checked against the selected problem and catalog scope; this mapping is not technical acceptance or a reward decision."
+      }
+    }
+  ]
+}

@@ -1,23 +1,25 @@
 name: Formal dispute
-description: The formal entry point for disputes about announced awards.
+description: Submit evidence challenging a public candidate or announced award, including proof, priority or eligibility.
 title: "[Dispute] "
 body:
   - type: markdown
     attributes:
       value: |
-        Use this form to raise a concern about an announced award. Include public evidence and relevant dates. Maintainers will record the concern and arrange review; this form does not establish an appeals deadline or procedure.
-        Submit public evidence only; do not publish private identity or payment information.
+        Use this form to challenge a candidate's eligibility during the 14-day public review or to raise a concern about an announced award. Include public evidence and relevant dates. Maintainers review objections before final award confirmation and payment; unresolved objections hold that process.
+        Use this issue for challenges concerning the candidate's or award's solution, Lean proof, attribution, priority, identity or eligibility. Include supporting public evidence. If you propose a replacement proof or catalog update, submit a linked PR using the normal submission template; a challenge without a replacement proof does not require one. For ordinary record corrections, use the Correction issue form. Each contribution role has a separate 14-day period. A challenge raised during that period must be resolved before it ends; an accepted replacement starts a new 14-day period for the affected contribution type when the replacement is added to candidates/ and its public notice begins. See the [award process](https://github.com/TheJustinSunPrize/awards/blob/main/docs/award-process.md).
+        Submit public evidence only. Send private identity materials only by email to thejustinsunprize@hejustinsun.com; do not publish private identity, payment or delivery information.
   - type: input
     id: award
     attributes:
-      label: Award and announcement
+      label: Candidate or award and related records
+      description: Include the JSP problem ID, candidate record and claim issue, or the announced award and announcement link.
     validations:
       required: true
   - type: input
     id: timing
     attributes:
       label: Relevant dates
-      description: Give the announcement date and the dates of the relevant evidence.
+      description: Give the candidate public-review dates or award announcement date, and the dates of the supporting evidence.
     validations:
       required: true
   - type: textarea
@@ -30,6 +32,7 @@ body:
     id: evidence
     attributes:
       label: Evidence and requested resolution
+      description: Link public proof, attribution or reproduction evidence. For priority claims, identify the earlier complete proof version and independently checkable dates. Include any related submission PR; a new Lean proof must identify its original repository, branch and full commit SHA and pass verification before replacing the recorded source.
     validations:
       required: true
   - type: textarea

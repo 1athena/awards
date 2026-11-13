@@ -12,20 +12,24 @@ This repository provides a public problem bank, candidate records, verification 
 
 The prize considers three dimensions: **A — problem longevity**, **B — publication venue**, and **C — public scholarly recognition**. Award announcements identify the problem, awarded level, and recipients. Detailed assessment criteria and deliberations are not published here.
 
-Verification evidence supports review. A successful build or repository check does not establish mathematical correctness, an award decision, or a right to payment.
+Verification evidence supports review. A successful proof build does not establish mathematical correctness, an award decision, or a right to payment.
 
 ## Records and status
 
-- **Observation:** preliminary public candidates. Records may be in draft, under verification, or awaiting written recipient confirmation.
-- **Verified-pending:** candidates under active verification or with verification completed but written recipient confirmation pending. The pool name alone does not establish successful verification; consult the record's status and evidence.
-- **Announced award:** a publicly announced decision with completed verification evidence and confirmed recipients, stored in `awards/`. Disputed, paid, and revoked records retain their history.
+- **Application under review:** a claim or submission tracked in its issue or PR, including solver applications awaiting formalization.
+- **Public candidate:** an accepted contribution published in the [candidate register](../candidates/README.md#candidate-register) for public review.
+- **Announced award:** a publicly announced decision with completed verification evidence and confirmed recipients, recorded in Markdown under `awards/`.
 
-Candidates use the same record layout as awards, with no announced decision until an award is published. Unconfirmed recipient identities use placeholders. The [record guide](records.md) describes the public fields and validation requirements.
+The [record guide](records.md) describes how to maintain these records and supporting evidence.
 
-The [problem bank](../problems/README.md) is a separate catalog. Its **Eligible to claim** flag is **Yes** for records marked **Solved** with a **Yes** Lean proof status; **Pending verification** marks an item for possible eligibility review. Neither flag creates a public candidate record, a formal nomination, or an award. Empty generated lists mean no records have been published here.
+The [problem bank index](../problems/README.md) displays **Current status** and **Lean proof** separately. Both the index and detail tables use **Open/Solved** for **Current status**. **Eligible to claim** is their shared screening flag: **Current status** must be **Solved** and **Lean proof** must be **Yes** for either award to proceed. Until eligibility is established, both claim statuses in the index are **Unavailable**. Once eligible, each role remains **Unclaimed** throughout application and candidate public review. Change only the awarded role to **Claimed** when its contribution moves from `candidates/` to a confirmed award record in `awards/`, and retain that status after its candidate entry is removed. Candidate registration and completion of public review alone do not change the status to **Claimed**. Claim status does not confirm payment.
+
+See the [award process](award-process.md) for the steps from submission to award,
+and the [public notice table](../candidates/README.md#candidate-register) for
+current candidates and their review dates.
 
 ## Public roles
 
-Curators organize public records and review materials. Verifiers provide evidence about formal statements and proof reproduction. Recipients are credited for their contributions. Public profiles and recusals live under [people](../people/README.md). A profile alone does not confer authority to approve an award.
+Curators organize public records and review materials. Verifiers provide evidence about formal statements and proof reproduction. Recipients are credited for their contributions. Record relevant conflicts and recusals in the review PR or issue using public professional information only.
 
 See [grading](grading.md), [attribution](attribution.md), [verification](verification.md), and [contributing](../CONTRIBUTING.md).

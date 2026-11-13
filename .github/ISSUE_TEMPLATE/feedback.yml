@@ -1,0 +1,11 @@
+name: Feedback, suggestion or question
+description: Share feedback, suggestions, or questions about the Justin Sun Prize.
+title: "[Feedback] "
+body:
+  - type: textarea
+    id: message
+    attributes:
+      label: Feedback, suggestion, or question
+      description: Describe your feedback, suggestion, or question. Include relevant links or examples if helpful.
+    validations:
+      required: true

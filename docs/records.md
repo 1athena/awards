@@ -2,78 +2,129 @@
 
 [Home](../README.md)
 
-This guide describes the file layout, lifecycle, and validation requirements for public candidate and award records. Only records published in this repository form part of its public candidate and award lists.
+Maintain public records in Markdown through reviewed PRs. The
+[award process](award-process.md) defines submission, public review, challenges,
+identity checks and award confirmation.
 
-## Layout and lifecycle
+## Where to record information
 
-```text
-awards/<YYYY-MM>/batch.yaml
-awards/<YYYY-MM>/<award-id>/
-candidates/verified-pending/<entry-id>/
-candidates/observation/<entry-id>/
-    award.yaml
-    citation.md
-    recipients.md
-    verification/record.yaml
-    verification/statement.yaml        # required for a formal claim
-    verification/statements/<id>.yaml  # only when retaining superseded statements
-```
-
-The last file layout applies to all three entry locations. A stable ID occurs in exactly one location. `observation` and `verified-pending` are pool names, not status values. The `verified-pending` pool contains formal candidates under active verification or with verification completed but written recipient confirmation still pending. The pool name alone does not establish successful verification; consult the record's status and evidence. An entry awaiting written recipient confirmation stays in candidates until the announcement requirements are met.
-
-The **Eligible to claim** flags **Yes** and **Pending verification** in the [problem bank](../problems/README.md) are screening markers, separate from these pools and lifecycle statuses. Neither creates a formal nomination or public candidate record. A problem enters the public candidate list only when its record is published under `candidates/`.
-
-| Location | Status |
+| Location | Purpose |
 | --- | --- |
-| Observation candidates | `draft`, `under-verification`, `pending-recipient-confirmation` |
-| Formal candidates | `under-verification`, `pending-recipient-confirmation` |
-| Confirmed awards | `announced`, `disputed`, `paid`, `revoked` |
+| [Problem bank](../problems/README.md) | Original problems, mathematical solutions, pinned Lean proof sources and attribution. |
+| [Candidate register](../candidates/README.md#candidate-register) | Public candidates and each contribution type's public-review start. |
+| Claim issues and submission PRs | Applications, review evidence and public conclusions, including solver applications awaiting formalization. |
+| [Awards](../awards/README.md) | Confirmed, publicly announced awards and supporting evidence. |
 
-An award batch is created only for actual, verified, confirmed, announced awards. Revoked awards stay in their original batch: append `revocation` with the reason, evidence and verification failure point; preserve the original decision, recipients and verification. The problem bank is separate from award records.
+## Maintaining the records
 
-## Source files
+The eligibility/claim-status conventions below apply to legacy records. For
+[MathDB pilot problems](../problems/mathdb-pilot.md), index/detail eligibility
+links to the pilot process. The index shows Solver and Lean claim status; the
+pilot page also shows Exposition. These cells are blank when no public record
+exists, or show `Candidate` or `Awarded` independently.
+A shared Solved/Lean flag does not determine all three categories. Maintain category-specific claim, candidate and award
+outcomes through the [new process](award-process-mathdb.md), including Exposition
+and Solution public review before complete Lean verification is available. Both
+categories require that verification before announcement and payment. Do not
+infer qualification from problem status or assign a level or estimated reward.
 
-| File | Purpose |
-| --- | --- |
-| `award.yaml` | Problem, published decision, confirmed recipient contributions, evidence references, conflicts, lifecycle and revocation. |
-| `citation.md` | English decision rationale, or a clearly marked candidate review narrative. |
-| `recipients.md` | English attribution with placeholders before confirmation. |
-| `verification/record.yaml` | Pinned source, toolchain and library, axiom audit, statement comparison, independent checkers, environment, isolation, attribution and external artifact pointers. May be `null` while review is pending; confirmed records require completed evidence. |
-| `verification/statement.yaml` | Versioned formal statement, original problem source, definition reviews, pinned library and public review signatures. |
+Identify contributions by JSP problem ID and contribution type. Keep contributor
+names, accepted PRs, proof references and public-review dates consistent with the
+[award process](award-process.md). Record public challenge outcomes in the relevant
+PR or issue and update the candidate register accordingly.
 
-Both Markdown files must be written in English and include a nonempty `## English` section. Structured records use the English fields `title_en`, `reason_en`, `text_en`, and `note_en` where applicable. Examples are in [templates](templates/). Angle-bracket placeholders in advanced templates deliberately fail validation. The draft template is for adapting to real mathematical results; do not publish the synthetic example as a live entry.
+Keep **Current status: Open/Solved** consistent between the index and detail
+tables, and preserve proof evidence qualifications.
+Keep **Eligible to claim** synchronized between the index and detail tables.
+Maintain **Solver claim status** and **Lean claim status** only in the index.
+Use only **Yes** and **No** for legacy eligibility; do not introduce additional
+eligibility states. Record **Yes** for a **Solved** result with a complete Lean
+proof recorded or reported in the catalog. Keep evidence qualifications in the
+proof fields and review notes. When eligibility is **No**, both claim statuses
+are **Unavailable**.
+When eligibility is **Yes**, each role remains **Unclaimed** throughout
+application and candidate public review. Change only the awarded role to
+**Claimed** when its contribution moves from `candidates/` to a confirmed award
+record in `awards/`. Existing confirmed awards remain **Claimed** after their
+candidate entries are removed. Opening a claim issue, publishing a candidate or
+completing its review period alone does not change the status to **Claimed**.
+Update the shared eligibility and both statuses if a solution or proof is
+invalidated; preserve the contribution and award history.
 
-The [award schema](../data/schema/award.schema.json), [verification schema](../data/schema/verification-record.schema.json), and [statement schema](../data/schema/statement.schema.json) are the authoritative field shapes. All record objects reject unknown fields. YAML aliases, duplicate keys, misplaced YAML files and record symlinks are rejected.
+Before concluding review, use the optional [citation template](templates/citation.md)
+to record the check for relevant pending PRs and its outcome. Record candidate
+start and end dates in UTC; retain date-only precision for historical entries.
 
-## Publication boundaries
+For an announced award, record the problem, contribution type, recipients,
+announcement link, completed review dates and public evidence
+in English Markdown under `awards/`. Update the register for that contribution;
+the other contribution type keeps its own review period. The optional
+[attribution template](templates/recipients.md) helps record contributors and
+supporting sources.
 
-- `decision` is `null` for candidates. Announced awards record only the published `level` (1–4) and an HTTPS `announcement` link. This is a record of a decision, not an instruction to calculate a grade.
-- Each recipient has an `id`, `affiliation`, `contribution_en`, and `confirmation`. Describe the evidenced contribution without recording private agreements or payment arrangements. Unconfirmed identities use placeholders; confirmed identities require a matching public profile.
-- Public `confirmation` and profile `publication_consent` links point to authorized attestations. Private signed documents, emails, addresses, payment details, and internal assessment materials never enter repository files or commits.
-- Assessment calculations, dimension values, adjustments, and payment allocations are outside this public record format. Unknown structured fields are rejected. Reviewers must also inspect free text for private material.
-- A formal evidence reference requires a statement even in candidates. Completed evidence is required for `pending-recipient-confirmation` and announced awards; failed or incomplete evidence may remain under review.
-- Published statements cannot be edited in place. Retain the previous content under `verification/statements/<old-id>.yaml` with status `superseded`, issue a new active ID in `statement.yaml`, and set `supersedes` to the previous ID.
-- CI checks recorded signatures, profiles and evidence consistency. Authority, independence, consent, current checker releases, safe versions, and mathematical equivalence require substantive review.
+## Verification evidence and private information
 
-## Local commands and CI
+Follow the [verification guide](verification.md) for the original problem,
+pinned proof commit, statement correspondence, reproduction results and public
+evidence links. Reports may be included in the PR or linked from the proof
+repository or a stable public archive. Keep Lean source and build artifacts out
+of this repository.
 
-Use Python 3.10 or later:
+Keep private identity documents, correspondence, payment and delivery details,
+and internal assessment materials out of repository files and commits. Reviewers
+check mathematical content, attribution and award eligibility.
 
-```sh
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-python scripts/manage.py validate
-python scripts/manage.py links
-python scripts/manage.py build
-python scripts/manage.py check
-python -m unittest discover -s tests -v
-```
+## MathDB pilot maintenance
 
-`validate` checks source schemas and cross-file business constraints. `links` checks local Markdown file links, reference links, images and heading anchors. External URL availability and raw HTML links are outside this offline check. `build` validates and writes deterministic `data/*.json`; `check` compares the committed files with regeneration without modifying them. No timestamps or machine-local paths enter the generated data.
+`problems/mathdb-pilot.json` is the source for approved scope, JSP/MathDB mappings,
+mapping evidence and rollout metadata. Keep mathematical statements and proof
+attribution in the existing catalog volumes. The generated pilot Markdown and
+catalog workflow rows display that same mapping; do not maintain a separate manual
+list or add problem levels/reward estimates. Preserve existing JSP anchors and
+legacy records unless an explicit catalog renumbering is approved. The MathDB
+pilot additions extended the last volume through JSP-001049.
+The [2026-10-13 OpenAI source review](../problems/openai-source-review-2026-10-13.md)
+extends that volume through JSP-001071. The mirror-symmetry scope update retains
+JSP-001024 for metric SYZ and adds JSP-001072 for Hodge-theoretic mirror symmetry.
+The smooth four-dimensional Poincaré conjecture was removed from the catalog;
+all subsequent JSP numbers and internal references were shifted down by one.
+The ranges above use the current numbering. The volume's original filename is retained.
 
-`python scripts/manage.py history --base <full-commit-sha>` compares published decisions, statements and retained award history with a Git base revision. CI runs this on PRs and pushes with an available base, using full history. It compares snapshots; reviewers must still check intermediate commits for private information and confirm business event dates.
+Store public identifiers, catalog titles, mathematical scope and public evidence
+in the register. Keep names, original wording and line numbers of internal working
+materials outside this repository.
 
-The three workflows validate records and links, generate downloadable data artifacts, and check committed data consistency. They use read-only repository permissions and do not push generated commits. Submit source and generated JSON in one PR. This CI does not execute proof repositories, certify mathematical truth, or perform payouts. Large logs and formal artifacts belong in permanent external archives; store archive ID, SHA-256 and byte count only.
+Use `confirmed` only after statement correspondence is checked. Keep `pending`
+for an unresolved formulation or contradictory page statement; both block automatic
+handoff. If no complete matching page is located, leave the mapping ID, URL, title
+and check date null and its evidence list empty. Keep any related page in the note
+as a reference, not as the approved mapping. Links display no status prefix;
+pending formulations and page-statement corrections remain in catalog metadata.
+`Matching page pending` describes a missing full match,
+independently of `Candidate` claim status.
 
-See [platform setup](platform-setup.md) for the GitHub settings that cannot be established by committing files.
+Public registration is derived separately for Solution, Lean and Exposition from
+the MathDB tables in `candidates/README.md` and `awards/README.md`. Use exactly those
+category labels and the recorded rule version in each row. After publishing or
+moving a category record, rebuild the index and pilot page in the same PR. This
+updates only that category; Exposition appears only on the pilot page. It does
+not infer committee approval, eligibility, claim-issue state or payment from
+mathematical status. Retained award records may have subsequent corrections
+or revocation; their detailed record determines the current outcome.
+
+Run `python3 scripts/mathdb_pilot.py build` after manifest changes, then
+`python3 scripts/mathdb_pilot.py check` and
+`python3 -m unittest discover -s tests -v`. The checker validates pilot membership,
+catalog/index correspondence, generated rows, safe canonical MathDB URLs, mapping
+evidence, duplicates and rollout metadata. It does not certify mathematics,
+qualification, priority, identity, committee decisions, live agent integration or
+payment. Current upstream uses Markdown registers and has no old JSON award
+generator to modify; the pilot check supplements this structure.
+
+Candidates use the shared [Candidate register](../candidates/README.md#candidate-register),
+with independent contribution columns and links to each category's claim.
+The [award pilot table](../awards/README.md#mathdb-pilot-awards) retains its
+category/claimant records. Both preserve public-review history. No hypothetical
+candidates, awarded recipients or payments are created
+when preparing a cohort. The official agent follows [its contract](../agent-scope.md)
+and the [claim/update templates](templates/mathdb-claim-reward.md).

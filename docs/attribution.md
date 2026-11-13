@@ -4,33 +4,31 @@ Public records credit mathematical and formalization contributions using their p
 
 For solver and Lean credits in the problem bank, see the [attribution conventions](../problems/README.md#attribution-conventions). Each **Attribution basis** row links to the evidence supporting those credits.
 
-Recipient identities require confirmation before publication. Keep identity documents, private contact details, written agreements and private payment arrangements out of public issues and repository files. Public identity attestations and contribution descriptions must be authorized for publication.
+Keep identity documents, private contact details, written agreements and private payment arrangements out of public issues and repository files. Public identity attestations and contribution descriptions must be authorized for publication.
 
 A contribution credit or candidate record does not announce an award. Confirmed recipients appear in the relevant [award record](../awards/README.md).
 
 ## Claiming an award
 
-Use the [award claim form](../.github/ISSUE_TEMPLATE/claim-award.yml) only
-for your own contribution. The issue author's GitHub account is the applicant
-account; entering someone else's account in the text does not change the applicant.
-Proxy applications and collection on another person's behalf are not accepted.
-Every application must include the problem-bank link, the original Lean proof
-repository URL and a follow-up contact email. The repository must belong to the
-same GitHub account that submits the issue. The contact email is public; provide
-an address intended for public correspondence. It is a communication channel,
-not independent identity evidence. Link related claims for the same problem and
-update an existing application instead of submitting duplicates.
+For a [MathDB pilot problem](../problems/mathdb-pilot.md), follow the
+[new claim and personal-confirmation steps](award-process-mathdb.md#3-agent-claim-and-personal-confirmation).
+MathDB submits the materials and public contribution records. The prize team
+reviews attribution and recipient identity separately. Every recipient needs
+identity verification and personal written confirmation. Legacy account/form requirements
+below apply to legacy applications.
 
-Only complete solutions to the original problem are accepted. Partial mathematical
-results and incomplete Lean formalizations are not eligible. Select mathematical
-solution, Lean formalization, or both, and link the problem-bank entry for the
-JSP ID in the issue title. Maintainers use its existing proof, source and attribution references
-together with the required original repository URL; applicants do not need
-to resubmit proof materials. Explain only unresolved account-to-contributor links
-or attribution discrepancies. If catalog information is missing or incorrect,
-link a correction issue or PR and resolve the relevant discrepancy before claim
-approval. A declaration in the form is not proof of identity or contribution;
-maintainers must verify it before approving the claim.
+Follow the [application steps](award-process.md#open-a-claim-award-issue) for
+eligibility, required fields and submission timing. Apply only for your own
+contribution using your own GitHub account; update an existing claim instead of
+duplicating it. Use the catalog's evidence and resolve missing or incorrect
+attribution through a linked correction or PR before approval.
+
+Every applicant, including Lean-only and both-role claimants, must complete the
+[identity email step](award-process.md#complete-identity-verification-by-email)
+from the issue's follow-up address, linking the claim and any merged submission PR. Existing
+source attribution does not waive this step. Sending a message or checking a
+form box alone does not establish identity; all recipients need written
+confirmation before an award.
 
 ### Mathematical solver verification
 
@@ -68,19 +66,33 @@ The identity confirmation must bind the applicant to the GitHub account, claim
 issue, problem ID and claimed role(s). Maintainers assess whether the evidence
 establishes the identity connection and may request additional
 verification. A claimed affiliation, profile link or proposed method alone does
-not verify identity. Name the intended method in the public issue, but keep private
-evidence in the designated private channel. Email is one option, not a requirement
-to obtain or regain access to a particular mailbox.
+not verify identity. Describe the method and provide private evidence by email to
+the official address. A public method-only note in the issue is optional. Using an established
+author mailbox is one verification option, not a requirement to regain access to
+a particular mailbox; a follow-up email can coordinate website, historical-key or
+other independent checks. If the author mailbox differs from the follow-up
+address, independently verify the connection between those channels.
 
 ### Lean contributor verification
 
-Check the original Lean proof repository URL supplied in the claim. Its owner must
-be the issue author's GitHub account; a mirror or collection of someone else's
-proof is not an acceptable original source. Compare it with the pinned proof
+For a Lean or both-role claim, check the original proof repository URL. It may be
+owned by the applicant's GitHub account or an organization; a mirror or collection
+of someone else's proof is not an acceptable original source. Compare it with the pinned proof
 version, theorem and attribution references in the problem-bank entry. Applicants
 do not need to repeat branch, commit or theorem details already recorded there.
 Resolve missing or conflicting references through a linked catalog correction.
 Keep proof source and build artifacts in the external repository.
+
+For an organization repository, require verifiable evidence connecting the
+applicant's account to their claimed contribution in the selected proof version.
+Evidence may include merged PRs and their review history, attributable commits
+and file changes, or project authorship records or maintainer confirmations
+identifying the applicant and their work. Link the specific proof files or
+theorems concerned and distinguish co-contributors' work. Evidence already
+recorded in the catalog or merged submission PR may be referenced without
+resubmitting it. Organization membership, repository access or administrator
+status alone is insufficient. Maintainers check the evidence against the pinned
+proof and keep the claim pending if attribution is unresolved.
 
 The applicant must be the actual contributor using their own account associated
 with the proof contribution. Repository ownership, being the last committer, or
@@ -93,26 +105,28 @@ Submitting the issue confirms control of the submitting GitHub account. Maintain
 must separately match that account to the formalization author identified in
 source records such as `sources.yaml` or the original repository's authorship
 credits. A catalog display credit based on repository ownership is insufficient.
+Lean applicants must also send the identity-verification email required above;
+source attribution supports the review but does not replace that step.
 If source attribution does not establish the account-to-author connection, use
 the independent identity-verification process described for mathematical solvers;
 the claim remains pending until that connection is verified. Posting the issue
-does not by itself establish authorship or mathematical correctness. Lean-only
-applicants may leave the identity-verification-method field blank only when source
-attribution establishes the connection. Applicants claiming both roles must still
-complete the mathematical solver identity verification.
+does not by itself establish authorship or mathematical correctness. The issue's
+identity-verification-method field is an optional public note;
+required identity details are supplied by email. Applicants claiming both roles
+must still complete mathematical solver identity verification.
 
 ### One person claiming both contributions
 
 Use one issue with both roles selected. Review the mathematical and Lean evidence
-from the catalog separately; approval of one role does not approve the other. Once identity is
-confirmed, associate both contributions with the same recipient rather than
-creating duplicate identities. Each approved contribution is handled under its
-applicable award decision, with duplicate claims checked before payment.
+separately; approval of one role does not approve the other. Associate both with
+the same verified recipient and check duplicate claims before payment. Follow the
+[challenge rules](award-process.md#the-14-day-public-review) when only one role is
+displaced; the other active claim can continue.
 
 ### Payment arrangements
 
-After contribution and identity verification and award confirmation, maintainers
-agree payment arrangements with the recipient through the designated private channel.
+Follow the [confirmation and delivery steps](award-process.md#step-3-recipient-confirmation-and-award-delivery).
+Exchange payment and medal delivery details only through the official email.
 
 Maintainers privately link the verified recipient, claim and approved contribution
 roles to the agreed payment arrangements. Changes require fresh confirmation
@@ -121,17 +135,15 @@ recorded separately.
 
 ### Maintainer review record
 
-The process is: self-application, contribution review, identity verification,
-recipient and award confirmation, public announcement, private payment
-arrangements, then payment.
 Record mathematical and Lean review outcomes separately, including not applicable
 where appropriate. Retain the catalog revision and proof references used in the
-review so later catalog changes do not silently change the reviewed claim. In the
-public issue, record the review outcomes and authorized public evidence. Retain
-private verification and payment materials in the designated private channel.
+review so later catalog changes do not silently change the reviewed claim. Use
+the public notice table for role-specific dates and authorized candidate
+identities. Explain a displaced claim in its issue; keep detailed challenge
+handling notes, identity checks, application-time records and correspondence in
+the private review records. Private identity and payment materials travel only
+through the official email.
 
 Only maintainer-reviewed outcomes establish verification. Applicant edits and
 checkboxes cannot mark a claim verified. An issue form cannot technically prevent
 impersonation or proxy submissions; maintainers reject those claims during review.
-These review notes are not new award-record lifecycle values and do not change
-the existing requirements for confirmed recipients or published award records.

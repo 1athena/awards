@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         Describe the problem, its current status, and the supporting public evidence. A recommendation does not establish award eligibility.
-        Do not include unconfirmed recipient names, private contact details, or payment information.
+        Do not include private contact details or payment information.
   - type: input
     id: problem
     attributes:

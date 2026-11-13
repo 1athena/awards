@@ -1,0 +1,4 @@
+interface:
+  display_name: "Independent Lean Proof Verification"
+  short_description: "Verify pinned Lean proofs and produce evidence reports"
+  default_prompt: "Use $lean-verify to check this awards PR, Erdős problem, or specified Lean revision: pin the original problem and source, map targets, audit semantics and completeness, reproduce in isolation, and save an English evidence report."

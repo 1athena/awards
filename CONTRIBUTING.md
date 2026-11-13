@@ -1,107 +1,118 @@
 # Contributing
 
-Contributions maintain the public problem bank, evidence, candidate records, and announced awards. Submitting an issue or passing repository checks does not announce an award.
+Contribute public problem records, solution and proof references, attribution,
+and award evidence through reviewed PRs. The [award process](docs/award-process.md)
+is the main guide for submission, claims, candidate publication, the 14-day public
+review, challenges and delivery.
 
-## Four ways to participate
+## Choose the right entry point
 
-| Type | Include | Handling |
-| --- | --- | --- |
-| Recommend a problem | Precise statement, significance, original references, known results, formalization links | Maintainers check scope, sources and duplicates. |
-| Claim an award | Problem-bank link, original Lean proof repository owned by the submitting GitHub account, public follow-up email, contribution role and related claims | Maintainers verify source attribution and the applicant's identity; payment arrangements are handled privately after award confirmation. |
-| Correction | Exact record, current text, proposed correction and supporting sources | Maintainers review the evidence and record the outcome. |
-| Dispute | Announced award, disputed claim, evidence, requested resolution and conflicts | Maintainers record the concern and arrange review. |
+For a [MathDB pilot problem](problems/mathdb-pilot.md), submit materials on its
+confirmed MathDB page under the [new process](docs/award-process-mathdb.md).
+MathDB submits the materials after technical and qualification checks;
+applicants respond personally. No proof PR or merge is a pilot claim prerequisite.
+Legacy PR requirements below apply outside the pilot. PRs still maintain public
+catalog records, and historical PRs remain attribution and priority evidence.
 
-Use the corresponding [issue form](.github/ISSUE_TEMPLATE/). Link existing issues instead of duplicating them. Disclose relevant conflicts using public professional information only. Use RECIPIENT-<ENTRY>-A placeholders until recipient identities are confirmed. Never publish unconfirmed identities, private contacts, identity documents, private financial information, internal assessment criteria or deliberations, including in commit messages. Handle payment arrangements through the maintainer-designated private channel.
+| Purpose | Where to start |
+| --- | --- |
+| Submit or claim a MathDB pilot contribution | [Pilot register](problems/mathdb-pilot.md) and [new process](docs/award-process-mathdb.md); MathDB submits the [claim form](.github/ISSUE_TEMPLATE/claim-reward-mathdb.yml) and supporting materials. |
+| Submit a complete solution, Lean proof reference or supported catalog update | [PR template](.github/PULL_REQUEST_TEMPLATE.md) and the submission requirements below. |
+| Recommend a problem | [Recommendation form](.github/ISSUE_TEMPLATE/recommend-problem.yml). |
+| Claim an award for your own contribution | [Claim form](.github/ISSUE_TEMPLATE/claim-award.yml), after the contribution PR merges or under the recorded-solver exception. Follow the [application and identity steps](docs/award-process.md#step-2-apply-and-participate-in-public-review). |
+| Correct a record | [Correction form](.github/ISSUE_TEMPLATE/correction.yml), with the current text, proposed change and sources. |
+| Challenge a candidate or announced award | [Dispute form](.github/ISSUE_TEMPLATE/dispute.yml), with the disputed claim and public evidence. Submit replacement proofs in a linked PR. |
+| Share feedback, suggestions or questions | [Feedback form](.github/ISSUE_TEMPLATE/feedback.yml). |
+| General conversation | [Discussions](docs/discussions-notice.md). |
 
-The [award claim form](.github/ISSUE_TEMPLATE/claim-award.yml) is for the
-actual contributor applying for themselves. Proxy applications and collection on
-another person's behalf are not accepted. Both mathematical and Lean contributions
-can be claimed in the same issue and are
-reviewed separately using the evidence already in the problem bank. Every claim
-must provide the problem-bank link, the original Lean proof repository URL and a
-follow-up contact email. The repository owner must match the issue author's GitHub
-account; mirrors or collections of someone else's proof do not qualify. The email
-will be public, so use an address intended for public correspondence. A contact
-email alone does not establish identity. Do not upload proof materials or repeat
-the catalog's branch, commit or theorem details; link a correction issue or PR if the
-catalog is missing information or needs updating. Read the [identity and payment process](docs/attribution.md#claiming-an-award).
-After identity verification and award confirmation, agree payment arrangements
-through the maintainer-designated private channel.
-Identity documents and private contact details are also handled privately.
-For mathematical solver claims, including claims for both roles, state an
-independently verifiable identity-confirmation method. A paper-listed author email is one option; established
-institutional or author channels, historical signing identities and other
-corroborated methods may also be used subject to maintainer verification.
-For Lean claims, maintainers check that the repository owner matches the issue
-author and that source attribution identifies the applicant as a formalization
-contributor. Ownership alone is not authorship. If that connection is missing or
-unclear, use the same independent identity-verification process as for mathematical
-solver claims. Lean-only applicants may leave the identity-verification-method
-field blank only when source attribution establishes that connection.
-
-## Public records
-
-Candidates and announced awards remain separate. Candidate records contain public facts and review evidence; an announced decision belongs only in an award record linked to its public announcement. Do not import internal assessment worksheets or calculation rules.
-
-Formal evidence references identify a pinned proof source, a statement tied to the original problem, and supporting verification records. Only authorized public evidence belongs here. Successful repository checks do not certify the mathematical content.
-
-Keep recipient identities as placeholders until confirmation. Announced awards require completed verification evidence, confirmed public profiles and explicit batch membership. A revocation retains the original decision, recipients and evidence alongside the published reason.
-
-Recommendations, claims, corrections and disputes should receive a public response in their issue thread. [Discussions](docs/discussions-notice.md) is for general conversation. Refer to published announcements for any applicable submission requirements; these forms do not establish award entitlement or an appeals procedure.
+Update existing PRs and issues for the same contribution instead of creating
+duplicates. Maintainers respond to recommendations, claims, corrections,
+disputes and feedback in their issue threads. Forms do not establish award entitlement.
 
 ## Pull requests
 
-- Write repository documents and records in English. Keep documentation, templates and schemas consistent.
-- Use the [record guide and templates](docs/records.md); keep synthetic examples outside live record directories.
-- Include public evidence and a clear reason for status changes.
-- Run validation, tests and data generation, then include generated JSON changes.
-- Review the complete diff and commit history for private material before submitting.
+- Write repository documents and records in English. Keep documentation and templates consistent.
+- Include public evidence and a clear reason for changes. Follow the [record guide](docs/records.md) when maintaining candidates and awards; its Markdown templates are optional.
+- Disclose relevant conflicts using public professional information only.
+- Review the complete diff and commit history for private material. Keep identity documents, private contacts, payment/delivery details and internal assessment materials out of the repository. Use the [official email](docs/award-process.md#before-you-start) for private information.
+- Retain third-party attribution and licenses; submit only material you are entitled to contribute. See [LICENSE](LICENSE) and [LICENSE-CONTENT](LICENSE-CONTENT).
 
-Licensing is governed by [LICENSE](LICENSE) and [LICENSE-CONTENT](LICENSE-CONTENT). Only submit material you are entitled to contribute; retain third-party attribution and licenses.
+## Before opening a PR
+
+We recommend checking whether someone has already submitted the same contribution
+before opening a PR. You can search [all PRs](https://github.com/TheJustinSunPrize/awards/pulls?q=is%3Apr)
+(open, merged and closed) by JSP problem ID, problem name and proof/publication
+reference, and check the current catalog entry and candidate record. Compare
+mathematical-solution information and Lean-formalization information separately:
+a solver submission does not by itself duplicate a Lean contribution for the same
+problem.
+
+If you find related submissions, consider linking them and explaining how your
+contribution differs. When the same contribution is already submitted or recorded,
+we encourage reviewing the existing submission before opening another PR that
+repeats the same information. This can help avoid duplicate work for contributors
+and reviewers.
+
+If you find a problem with an existing submission, it is helpful to identify the
+affected PR and exact publication or proof commit, describe the error, and share
+checkable evidence (such as a statement mismatch, missing case or reproducible
+verification failure). You can comment on the existing PR or use the
+correction/dispute route above, with a linked replacement PR when needed. Evidence-backed priority
+or attribution corrections remain subject to the
+[challenge process](docs/award-process.md#the-14-day-public-review).
+An earlier PR opening time alone does not establish priority. For changes to your
+own pending submission, we recommend updating the existing PR.
 
 ## External solver and Lean submissions
 
-**Only complete solutions to the original problem are accepted. Partial progress
-is not eligible for submission, whether mathematical or in Lean.**
+**Only complete solutions to the original problem are accepted, whether
+mathematical or in Lean.** Special cases, intermediate lemmas, weaker results and
+conditional arguments relying on additional unproved assumptions do not qualify.
+A Lean statement alone or a proof depending on `sorry`, `admit` or assumptions
+standing in for missing proof steps is incomplete.
 
-Mathematical submissions must resolve the full original statement, including all
-required cases. Special cases, intermediate lemmas, weaker results and conditional
-arguments that depend on additional unproved assumptions are not accepted.
+The complete mathematical solution to the original problem and its proof or
+publication evidence may be provided before the Lean formalization or together
+with it in the same PR. The mathematical solver and Lean formalization author
+may be different people. **A Lean submission without the mathematical solution
+and its supporting evidence is invalid and will not be accepted.** Link the
+earlier solution or provide it and its evidence in the Lean PR.
 
-Lean submissions must provide a complete formal proof of the original problem at
-the specified commit. A statement alone, a partial formalization, or a proof that
-depends on `sorry`, `admit` or unproved assumptions added to stand in for missing
-proof steps is not accepted. A complete mathematical solution does not make an
-incomplete Lean formalization eligible for submission. Reviewers must verify
-completeness before approving a PR.
+Fork this repository and update the relevant existing
+`problems/catalog-XXXX-XXXX.md` file using the PR template. External submissions
+may change **Current status** (including **Proof contributors:**), **Lean proof**,
+**Attribution basis**, and **Publication details**. Use **Open** or **Solved** as
+the status in both the index and detail tables.
+Maintainers reconcile the index and eligibility fields after review, and maintain
+each role's claim status in the index. Eligible roles remain **Unclaimed** during
+candidate public review; change only the awarded role to **Claimed** when its
+contribution moves from `candidates/` to a confirmed award record in `awards/`.
+Use an issue for other corrections or requests.
 
-Use the default PR template and edit the relevant existing
-`problems/catalog-XXXX-XXXX.md` file. External PRs may update **Current status**
-(including mathematical solver credits), **Lean proof**, **Attribution basis**, and
-**Publication details**. Use only **Open** or **Solved** as the status; record
-complete-solution credits in the same **Current status** field after
-**Proof contributors:**. Do not add intermediate results or incomplete
-formalizations. Explain proposed status changes for maintainer review;
-maintainers reconcile index/status/eligibility fields after review. Use issues for
-other corrections or requests rather than changing unrelated repository files.
+Provide evidence for the contribution you are submitting:
 
-Provide evidence according to the contribution:
+- **Mathematical solution:** public proof or publication, relevant theorem/pages and version or date, solver names and evidence supporting their contributions.
+- **Lean formalization:** the original proof repository, owned by your submitting account or an organization; branch and full 40-character commit SHA; statement and proof locations; formalization authors; reproduction instructions, axiom audit and attribution evidence. For an organization repository, provide verifiable evidence connecting your account to the claimed proof contribution, following the [contribution checks](docs/attribution.md#lean-contributor-verification). The selected commit must be contained in the named branch. Do not register someone else's proof, a mirror or a copy on their behalf.
+- **Both:** provide both sets of evidence and distinguish the contributions.
 
-- **Solver information:** link the public proof or publication and sources supporting
-  the named solver's contribution, such as the paper's author list or an author
-  announcement. Identify the relevant theorem, version or pages.
-- **Lean information:** link the public source repository and supply its branch and
-  a full 40-character commit SHA. Identify the theorem/file, formalization authors,
-  build instructions and attribution evidence in that repository.
-- **Both:** provide both sets of evidence. Solver-only corrections do not require
-  a Lean repository.
+Mathematical review must pass before Lean acceptance. Identify the mathematical
+solution and any review evidence, or supply the solution evidence in the same PR
+for review.
+The solver need not have registered or claimed an award. Solver-only submissions
+need no Lean repository or self-check.
 
-Submit references and catalog text only. Do not commit Lean source, project/build
-files, dependencies, archives or binaries to this repository. Do not paste proof
-source into catalog rows. Update an existing PR for the same contribution instead
-of opening duplicates. Existing PRs containing source should be revised to remove
-those files and use this format; they are not automatically closed.
+For Lean proofs, we recommend the optional
+[`lean-verify` skill](skills/lean-verify/SKILL.md). Other verification methods are
+welcome; self-check reports and log links are optional. See the
+[verification guide](docs/verification.md#recommended-lean-pre-submission-check)
+for checking a fixed version and sharing results. Maintainers independently
+review the statement and reproduce proof verification before acceptance.
 
-Maintainer review and approval are required before merging. Reviewers check
-source accessibility, the pinned version, attribution and the full theorem scope,
-including whether the named branch contains the selected commit.
+Submit references and catalog text only. Keep Lean source, project/build files,
+dependencies, archives and binaries in the external proof repository; do not
+paste proof source into catalog rows. Revise existing PRs containing source to
+use this format; they are not automatically closed.
+
+Maintainer approval is required before merging. Replacement proofs have the same
+evidence and verification requirements as initial submissions. Priority and
+candidate replacement follow the [challenge process](docs/award-process.md#the-14-day-public-review).

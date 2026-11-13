@@ -1,14 +1,14 @@
 Content and data license — CC BY 4.0
 
 First-party prose and record data in README files, CONTRIBUTING.md,
-CODE_OF_CONDUCT.md, docs/, awards/, candidates/, people/, and data/ are
+CODE_OF_CONDUCT.md, docs/, awards/, and candidates/ are
 licensed under Creative Commons Attribution 4.0 International.
-Scripts, tests, CI configuration, and JSON Schema definitions use LICENSE (MIT).
+Scripts, tests, and CI configuration use LICENSE (MIT).
 Credit The Justin Sun Prize contributors, identify the source revision,
 link the license, and indicate changes as required by the license below.
 Third-party quotations, formal statements, and source code retain their
-original licenses; identify these in a YAML header comment or the relevant
-Markdown attribution. This license grants no rights to third-party materials
+original licenses; identify these in the relevant Markdown attribution.
+This license grants no rights to third-party materials
 beyond those the original rightsholder provides.
 
 Canonical license: https://creativecommons.org/licenses/by/4.0/legalcode.en
